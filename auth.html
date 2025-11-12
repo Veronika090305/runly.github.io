@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RUNLI — Вход / Регистрация</title>
+
+  <!-- Минималистичные стили, легко править -->
+  <style>
+    :root{
+      --bg:#faf9f7;
+      --card:#ffffff;
+      --accent:#2b8a7a; /* можно заменить на фирменный цвет */
+      --muted:#6b7280;
+      --radius:12px;
+      --shadow: 0 6px 18px rgba(20,20,30,0.06);
+      font-family: Inter, Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+      background: linear-gradient(180deg,#fbfbfb, #f1f5f4);
+      color:#0f172a;
+      padding:24px;
+    }
+    .wrap{
+      width:100%; max-width:920px; display:grid; grid-template-columns:1fr 420px; gap:28px;
+    }
+    .hero{
+      background:transparent;
+      padding:28px;
+    }
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:20px;
+    }
+    h1{margin:0 0 12px 0; font-size:20px;}
+    p.lead{color:var(--muted); margin-top:8px}
+    .tabs{display:flex; gap:8px; margin-bottom:16px}
+    .tab{
+      flex:1; text-align:center; padding:10px 12px; border-radius:10px; cursor:pointer;
+      background:#f4f6f6; color:var(--muted); user-select:none;
+    }
+    .tab.active{background:linear-gradient(90deg,var(--accent), #2fada0); color:white; font-weight:600}
+    form{display:grid; gap:10px;}
+    input[type="email"], input[type="password"], select, textarea{
+      width:100%; padding:10px 12px; border-radius:8px; border:1px solid #e6e7ea; font-size:14px;
+    }
+    button{
+      background:var(--accent); color:white; border:0; padding:10px 12px; border-radius:8px; cursor:pointer;
+      font-weight:600;
+    }
+    .small{font-size:13px; color:var(--muted)}
+    .muted{color:var(--muted)}
+    .row{display:flex; gap:8px}
+    .row .col{flex:1}
+    .message{padding:10px;border-radius:8px;background:#fff7ed;color:#7a4a00;font-size:14px;margin-top:8px}
+    .success{background:#ecfdf5;color:#064e3b}
+    .link{color:var(--accent); cursor:pointer; text-decoration:underline; font-weight:600}
+    @media(max-width:900px){ .wrap{grid-template-columns:1fr; padding:0} }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <!-- Левый блок — презентация -->
+    <div class="hero">
+      <div class="card">
+        <h1>RUNLI — личный кабинет</h1>
+        <p class="lead">Создай аккаунт, сохраняй подборки и возвращайся в любой момент. Восстановление пароля и подтверждение по e-mail уже настроены.</p>
+        <hr style="margin:16px 0;">
+        <p class="small">Что ты получаешь:</p>
+        <ul class="small">
+          <li>Сохранённые подборки в профиле</li>
+          <li>Безопасная авторизация через e-mail</li>
+          <li>Возможность восстановить пароль по e-mail</li>
+        </ul>
+        <p style="margin-top:12px" class="small muted">Если что-то не работает с отправкой писем — проверь SMTP настройки в Supabase (Authentication → Emails → SMTP Settings).</p>
+      </div>
+    </div>
+
+    <!-- Правый блок — формы -->
+    <div>
+      <div class="card">
+        <div class="tabs">
+          <div id="tab-signin" class="tab active">Вход</div>
+          <div id="tab-signup" class="tab">Регистрация</div>
+        </div>
+
+        <!-- Вход -->
+        <div id="panel-signin">
+          <form id="signin-form">
+            <input type="email" id="signin-email" placeholder="Email" required autocomplete="email">
+            <input type="password" id="signin-password" placeholder="Пароль" required autocomplete="current-password">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div class="small muted">Нет аккаунта? <span id="toSignup" class="link">Зарегистрироваться</span></div>
+              <div class="small"><span id="toReset" class="link">Забыл пароль</span></div>
+            </div>
+            <button type="submit">Войти</button>
+          </form>
+          <div id="signin-msg" class="message" style="display:none"></div>
+        </div>
+
+        <!-- Регистрация -->
+        <div id="panel-signup" style="display:none">
+          <form id="signup-form">
+            <input type="email" id="signup-email" placeholder="Email" required autocomplete="email">
+            <input type="password" id="signup-password" placeholder="Пароль (мин. 6 символов)" required autocomplete="new-password">
+            <div class="row">
+              <div class="col">
+                <label class="small">Пол</label>
+                <select id="signup-gender">
+                  <option value="">Не указывать</option>
+                  <option value="female">Женщина</option>
+                  <option value="male">Мужчина</option>
+                  <option value="other">Другое</option>
+                  <option value="no_answer">Предпочитаю не указывать</option>
+                </select>
+              </div>
+              <div class="col">
+                <label class="small">Возраст</label>
+                <select id="signup-age">
+                  <option value="">Не указывать</option>
+                  <option value="<18">Младше 18</option>
+                  <option value="18-25">18–25</option>
+                  <option value="26-40">26–40</option>
+                  <option value="41-60">41–60</option>
+                  <option value=">60">Больше 60</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="font-size:12px;color:var(--muted); margin-top:8px">Нажимая «Зарегистрироваться», вы соглашаетесь с правилами сервиса.</div>
+            <button type="submit">Зарегистрироваться</button>
+          </form>
+          <div id="signup-msg" class="message" style="display:none"></div>
+        </div>
+
+        <!-- Сброс пароля -->
+        <div id="panel-reset" style="display:none; margin-top:8px">
+          <form id="reset-form">
+            <input type="email" id="reset-email" placeholder="Введите email для сброса" required>
+            <div class="small muted" style="margin-bottom:8px">Мы отправим ссылку для сброса пароля на указанный адрес.</div>
+            <button type="submit">Отправить ссылку для сброса</button>
+          </form>
+          <div id="reset-msg" class="message" style="display:none"></div>
+        </div>
+
+      </div>
+
+      <!-- Кнопки для входа/выход и профиль (демо) -->
+      <div style="margin-top:12px" class="card">
+        <div id="profile-block" style="display:none">
+          <div><strong id="profile-email"></strong></div>
+          <div class="small muted" id="profile-info"></div>
+          <div style="margin-top:10px">
+            <button id="btn-logout" style="background:#f43f5e">Выйти</button>
+            <button id="btn-dashboard" style="margin-left:8px;background:#111827">Мой профиль</button>
+          </div>
+        </div>
+        <div id="not-signed" style="display:block" class="small muted">Вы не авторизованы</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Supabase client (CDN) -->
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+  <script>
+  // ====== 1) Вставь сюда свои данные из Supabase (Settings → API) ======
+  const SUPABASE_URL = 'https://lyqedngejapolcffscyk.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx5cWVkbmdlamFwb2xjZmZzY3lrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI5NzYxOTAsImV4cCI6MjA3ODU1MjE5MH0.xdRoqew8xSAmDbDtryMQBmu7vj9FBj_AQDD5cCJl-_g';
+  // ===================================================================
+  const supabase = supabaseJs.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  // ---- UI helpers ----
+  const $ = id => document.getElementById(id);
+  const show = (id) => { document.querySelectorAll('[id^="panel-"]').forEach(n=>n.style.display='none'); document.getElementById(id).style.display='block'; }
+  const setMsg = (id, text, ok=false) => {
+    const el = $(id); if(!el) return;
+    el.style.display = 'block'; el.textContent = text;
+    el.className = 'message' + (ok ? ' success' : '');
+  }
+  const hideMsg = id => { const el=$(id); if(el) el.style.display='none'; }
+
+  // ---- Tabs handlers ----
+  const tabSignin = $('tab-signin'), tabSignup = $('tab-signup');
+  tabSignin.onclick = ()=>{ tabSignin.classList.add('active'); tabSignup.classList.remove('active'); show('panel-signin'); $('not-signed').style.display='block'; $('profile-block').style.display='none'; };
+  tabSignup.onclick = ()=>{ tabSignup.classList.add('active'); tabSignin.classList.remove('active'); show('panel-signup'); $('not-signed').style.display='block'; $('profile-block').style.display='none'; };
+
+  // quick links
+  $('toSignup').onclick = ()=>{ tabSignup.click(); };
+  $('toReset').onclick = ()=>{ show('panel-reset'); $('tab-signin').classList.remove('active'); $('tab-signup').classList.remove('active'); };
+
+  // ---- Sign up ----
+  $('signup-form').addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    hideMsg('signup-msg');
+    const email = $('signup-email').value.trim();
+    const password = $('signup-password').value;
+    const gender = $('signup-gender').value || null;
+    const age_group = $('signup-age').value || null;
+
+    if(password.length < 6){ setMsg('signup-msg','Пароль должен быть минимум 6 символов'); return; }
+
+    try{
+      const { data, error } = await supabase.auth.signUp({ email, password });
+      if(error) throw error;
+
+      // Попытка получить user (в некоторых flow user доступен в data.user)
+      const userResult = await supabase.auth.getUser();
+      const user = (data && data.user) || (userResult && userResult.data && userResult.data.user) || null;
+
+      // Создаём профиль (если таблица profiles есть)
+      if(user){
+        // вставляем безопасно: если профиль уже существует — игнорируем конфликт
+        await supabase.from('profiles').upsert({
+          user_id: user.id,
+          gender,
+          age_group,
+          updated_at: new Date().toISOString()
+        }, { onConflict: ['user_id'] });
+      }
+
+      setMsg('signup-msg','Готово! Проверьте почту — выслано письмо для подтверждения.', true);
+      // очистка полей
+      $('signup-form').reset();
+    }catch(err){
+      setMsg('signup-msg','Ошибка: ' + (err.message || JSON.stringify(err)));
+    }
+  });
+
+  // ---- Sign in ----
+  $('signin-form').addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    hideMsg('signin-msg');
+    const email = $('signin-email').value.trim();
+    const password = $('signin-password').value;
+
+    try{
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+      if(error) throw error;
+
+      setMsg('signin-msg','Успешно. Сейчас вы будете авторизованы.', true);
+      $('signin-form').reset();
+      await updateUIForUser();
+    }catch(err){
+      setMsg('signin-msg','Ошибка входа: ' + (err.message || JSON.stringify(err)));
+    }
+  });
+
+  // ---- Reset password ----
+  $('reset-form').addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    hideMsg('reset-msg');
+    const email = $('reset-email').value.trim();
+    try{
+      const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: window.location.origin + '/reset-password.html' // позже создадим reset-page
+      });
+      if(error) throw error;
+      setMsg('reset-msg','Проверьте почту — ссылка для сброса отправлена.', true);
+      $('reset-form').reset();
+    }catch(err){
+      setMsg('reset-msg','Ошибка: ' + (err.message || JSON.stringify(err)));
+    }
+  });
+
+  // ---- Logout ----
+  $('btn-logout').addEventListener('click', async ()=>{
+    await supabase.auth.signOut();
+    setMsg('signin-msg','Вы вышли из аккаунта', true);
+    await updateUIForUser();
+  });
+
+  // ---- Dashboard / profile button (opens profile page) ----
+  $('btn-dashboard').addEventListener('click', ()=>{
+    window.location.href = '/profile.html'; // создадим profile.html отдельным файлом позже
+  });
+
+  // ---- Keep UI in sync with auth state ----
+  async function updateUIForUser(){
+    const { data: userData } = await supabase.auth.getUser();
+    const user = userData && userData.user;
+    if(user){
+      $('not-signed').style.display='none';
+      $('profile-block').style.display='block';
+      $('profile-email').textContent = user.email || '(email не указан)';
+      // Получим профиль из таблицы (если есть)
+      const { data: profile, error } = await supabase.from('profiles').select('*').eq('user_id', user.id).single();
+      if(profile && !error){
+        $('profile-info').textContent = (profile.gender?('Пол: '+profile.gender+'; '):'') + (profile.age_group?('Возраст: '+profile.age_group):'');
+      } else {
+        $('profile-info').textContent = 'Профиля пока нет';
+      }
+    } else {
+      $('not-signed').style.display='block';
+      $('profile-block').style.display='none';
+    }
+  }
+
+  // Подписываемся на изменения сессии
+  supabase.auth.onAuthStateChange((event, session) => {
+    updateUIForUser();
+  });
+
+  // при загрузке страницы
+  (async ()=>{ await updateUIForUser(); })();
+
+  </script>
+</body>
+</html>
