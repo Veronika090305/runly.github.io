@@ -258,7 +258,7 @@
     const email = $('reset-email').value.trim();
     try{
       const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: window.location.origin + '/reset-password.html' // позже создадим reset-page
+        redirectTo: window.location.origin + 'https://runli.ru/reset-password.html' // позже создадим reset-page
       });
       if(error) throw error;
       setMsg('reset-msg','Проверьте почту — ссылка для сброса отправлена.', true);
