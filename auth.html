@@ -175,6 +175,23 @@
   // ===================================================================
   const supabase = supabaseJs.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+// в начале скрипта, сразу после инициализации supabase (и before updateUIForUser)
+(function(){
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('confirmed') === '1') {
+    // показываем краткую нотификацию – можно использовать существующий блок
+    setTimeout(()=>{ // через секунду, чтобы UI был загружен
+      setMsg('signin-msg', 'Спасибо — ваша почта подтверждена. Теперь вы можете войти в аккаунт.', true);
+      // переключиться на вкладку Вход
+      $('tab-signin').click();
+    }, 600);
+    // убрать параметр из адресной строки без перезагрузки
+    const cleanUrl = location.origin + location.pathname;
+    window.history.replaceState({}, document.title, cleanUrl);
+  }
+})();
+// Открыть вкладку Вход по умолчанию
+tabSignin.click();
   // ---- UI helpers ----
   const $ = id => document.getElementById(id);
   const show = (id) => { document.querySelectorAll('[id^="panel-"]').forEach(n=>n.style.display='none'); document.getElementById(id).style.display='block'; }
@@ -206,7 +223,10 @@
     if(password.length < 6){ setMsg('signup-msg','Пароль должен быть минимум 6 символов'); return; }
 
     try{
-      const { data, error } = await supabase.auth.signUp({ email, password });
+      const { data, error } = await supabase.auth.signUp(
+        { email, password },
+        { redirectTo: 'https://runli.ru/auth.html?confirmed=1' }
+      );
       if(error) throw error;
 
       // Попытка получить user (в некоторых flow user доступен в data.user)
