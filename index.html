@@ -224,12 +224,12 @@
                 setMessage('signin-msg', 'Успешный вход! Перенаправляем...', true);
                 // Здесь можно добавить перенаправление в личный кабинет
                 setTimeout(() => {
-                    window.location.href = '/dashboard.html'; // Создадим позже
-                }, 1000);
-            } catch (error) {
-                setMessage('signin-msg', 'Ошибка входа: ' + error.message);
-            }
-        });
+            window.location.href = '/dashboard.html';
+        }, 1000);
+    } catch (error) {
+        setMessage('signin-msg', 'Ошибка входа: ' + error.message);
+    }
+});
 
         function setMessage(elementId, text, isSuccess = false) {
             const element = document.getElementById(elementId);
