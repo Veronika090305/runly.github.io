@@ -263,7 +263,91 @@ button:hover, .button:hover {
     }
 }
 /* Добавляем в конец файла */
+/* Стили для красивых чекбоксов */
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 10px;
+}
 
+.checkbox-card {
+    position: relative;
+}
+
+.checkbox-card input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: white;
+    border: 2px solid var(--dust-grey);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    min-height: 60px;
+}
+
+.checkbox-label:hover {
+    border-color: var(--cherry-blossom);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(237, 175, 184, 0.15);
+}
+
+.checkbox-card input[type="checkbox"]:checked + .checkbox-label {
+    background: var(--powder-petal);
+    border-color: var(--cherry-blossom);
+    box-shadow: 0 4px 12px rgba(237, 175, 184, 0.2);
+}
+
+.checkbox-icon {
+    font-size: 1.2em;
+    margin-right: 12px;
+    width: 24px;
+    text-align: center;
+}
+
+.checkbox-text {
+    flex: 1;
+    color: var(--text-dark);
+}
+
+/* Адаптивность для чекбоксов */
+@media (max-width: 768px) {
+    .checkbox-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .checkbox-label {
+        padding: 12px;
+        min-height: 55px;
+    }
+}
+
+/* Стили для поля возраста */
+.form-group input[type="number"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--dust-grey);
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-group input[type="number"]:focus {
+    outline: none;
+    border-color: var(--cherry-blossom);
+    box-shadow: 0 0 0 3px rgba(237, 175, 184, 0.2);
+}
 /* Герой-секция */
 .hero-section {
     text-align: center;
