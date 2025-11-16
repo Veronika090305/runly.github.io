@@ -262,3 +262,164 @@ button:hover, .button:hover {
         font-size: 1.5em;
     }
 }
+/* Добавляем в конец файла */
+
+/* Герой-секция */
+.hero-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, var(--powder-petal) 0%, var(--dust-grey) 100%);
+    margin: -40px -20px 40px -20px;
+}
+
+.hero-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: var(--iron-grey);
+}
+
+.hero-content .lead {
+    font-size: 1.3em;
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--text-light);
+}
+
+/* Секция авторизации */
+.auth-section {
+    max-width: 500px;
+    margin: 0 auto 60px auto;
+}
+
+.auth-tabs {
+    display: flex;
+    margin-bottom: 20px;
+    background: var(--dust-grey);
+    border-radius: var(--radius);
+    padding: 4px;
+}
+
+.auth-tab {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    transition: all var(--transition);
+}
+
+.auth-tab.active {
+    background: white;
+    box-shadow: var(--shadow);
+    color: var(--cherry-blossom);
+}
+
+.auth-form {
+    display: none;
+}
+
+.auth-form.active {
+    display: block;
+}
+
+.auth-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-group {
+    flex: 1;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-dark);
+    font-size: 0.9em;
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: normal;
+    font-size: 0.85em;
+    cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+}
+
+.auth-links {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.auth-button {
+    margin-top: 10px;
+}
+
+.terms {
+    font-size: 0.8em;
+    color: var(--text-light);
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* Сетка фич */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.feature-card {
+    background: var(--powder-petal);
+    padding: 25px;
+    border-radius: var(--radius);
+    border-left: 4px solid var(--cherry-blossom);
+}
+
+.feature-card h3 {
+    margin-top: 0;
+    color: var(--iron-grey);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .hero-content h2 {
+        font-size: 2em;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
