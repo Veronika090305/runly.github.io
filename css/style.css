@@ -380,6 +380,29 @@ button:hover, .button:hover {
     color: var(--text-light);
 }
 
+/* Стили для герой-секции главной страницы */
+.hero-content {
+    max-width: 800px; /* Делаем шире */
+    margin: 0 auto; /* Центририруем */
+    text-align: left; /* Текст слева */
+    padding: 0 20px; /* Отступы по бокам */
+}
+
+.hero-content h2 {
+    font-size: 2.2em; /* Можно сделать чуть меньше если нужно */
+    line-height: 1.3;
+    margin-bottom: 25px;
+    text-align: left; /* Заголовок тоже слева */
+}
+
+.hero-content .lead {
+    font-size: 1.1em; /* Чуть меньше размер */
+    line-height: 1.7; /* Увеличиваем межстрочный интервал */
+    text-align: left; /* Текст слева */
+    max-width: 100%; /* Занимает всю доступную ширину */
+    margin: 0 auto; /* Убираем лишние отступы */
+}
+
 /* Секция авторизации */
 .auth-section {
     max-width: 500px;
