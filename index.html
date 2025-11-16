@@ -2,29 +2,22 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>RUNLY — универсальная платформа</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUNLI — Помощник для студенток и молодых специалисток</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-<script>
-  const SUPABASE_URL = 'https://lyqedngejapolcffscyk.supabase.co';
-  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx5cWVkbmdlamFwb2xjZmZzY3lrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI5NzYxOTAsImV4cCI6MjA3ODU1MjE5MH0.xdRoqew8xSAmDbDtryMQBmu7vj9FBj_AQDD5cCJl-_g';
-  window.supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-</script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script>
+        const SUPABASE_URL = 'https://lyqedngejapolcffscyk.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx5cWVkbmdlamFwb2xjZmZzY3lrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI5NzYxOTAsImV4cCI6MjA3ODU1MjE5MH0.xdRoqew8xSAmDbDtryMQBmu7vj9FBj_AQDD5cCJl-_g';
+        window.supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    </script>
 </head>
 <body>
-    <h2>Регистрация</h2>
-<form id="signup-form">
-  <input type="email" id="email" placeholder="Email" required><br>
-  <input type="password" id="password" placeholder="Пароль" required><br>
-  <button type="submit">Зарегистрироваться</button>
-</form>
-
-<p id="message"></p>
     <header>
-        <h1>Добро пожаловать в RUNLY</h1>
+        <h1>RUNLI</h1>
         <nav>
             <a href="index.html">Главная</a> |
             <a href="about.html">О нас</a> |
@@ -33,37 +26,223 @@
     </header>
 
     <main>
-        <section>
-            <h2>Что такое RUNLY</h2>
-            <p>Универсальная платформа для … (тут твоё описание).</p>
+        <!-- Герой-секция -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h2>Твой помощник во взрослой жизни</h2>
+                <p class="lead">Проверенные гайды и практические инструменты для студенток и молодых специалисток. Всё в одном месте — просто и понятно, как совет от старшей подруги.</p>
+            </div>
         </section>
 
+        <!-- Блок авторизации -->
+        <section class="auth-section">
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Вход</button>
+                <button class="auth-tab" data-tab="signup">Регистрация</button>
+            </div>
+
+            <!-- Форма входа -->
+            <div id="login-form" class="auth-form active">
+                <form id="signin-form">
+                    <input type="email" id="signin-email" placeholder="Email" required>
+                    <input type="password" id="signin-password" placeholder="Пароль" required>
+                    <div class="auth-links">
+                        <button type="button" id="forgot-password" class="link">Не помню пароль</button>
+                    </div>
+                    <button type="submit" class="auth-button">Войти</button>
+                </form>
+                <div id="signin-msg" class="notice" style="display:none"></div>
+            </div>
+
+            <!-- Форма регистрации -->
+            <div id="signup-form" class="auth-form">
+                <form id="register-form">
+                    <input type="email" id="register-email" placeholder="Email" required>
+                    <input type="password" id="register-password" placeholder="Пароль (минимум 6 символов)" required>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Возраст</label>
+                            <input type="number" id="register-age" placeholder="Укажите возраст" min="14" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label>Деятельность</label>
+                            <select id="register-activity" required>
+                                <option value="">Выберите вариант</option>
+                                <option value="school">Школьник</option>
+                                <option value="student">Студент</option>
+                                <option value="employed">Работаю</option>
+                                <option value="unemployed">Не работаю</option>
+                                <option value="entrepreneur">Предприниматель</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Цели на RUNLI (можно выбрать несколько)</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="goals" value="finance"> Финансы и бюджет</label>
+                            <label><input type="checkbox" name="goals" value="career"> Карьера и работа</label>
+                            <label><input type="checkbox" name="goals" value="study"> Учёба и образование</label>
+                            <label><input type="checkbox" name="goals" value="health"> Здоровье и самочувствие</label>
+                            <label><input type="checkbox" name="goals" value="organization"> Организация быта</label>
+                            <label><input type="checkbox" name="goals" value="relationships"> Отношения и общение</label>
+                        </div>
+                    </div>
+
+                    <div class="terms">
+                        Нажимая «Зарегистрироваться», вы соглашаетесь с правилами сервиса.
+                    </div>
+                    <button type="submit" class="auth-button">Зарегистрироваться</button>
+                </form>
+                <div id="signup-msg" class="notice" style="display:none"></div>
+            </div>
+        </section>
+
+        <!-- Информационные секции -->
         <section>
-            <h2>Начать пользоваться</h2>
-            <p>Инструкции или кнопка «Войти»/«Регистрация».</p>
+            <h2>Что тебя ждёт в RUNLI</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>💰 Управление бюджетом</h3>
+                    <p>Трекеры расходов, шаблоны бюджета, советы по накоплениям</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎯 Карьера и поиск работы</h3>
+                    <p>Резюме, собеседования, карьерные трекеры</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🏠 Организация быта</h3>
+                    <p>Чек-листы, планировщики, советы по хозяйству</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🌱 Личное развитие</h3>
+                    <p>Привычки, цели, саморефлексия</p>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 RUNLY. Все права защищены.</p>
+        <p>&copy; 2025 RUNLI. Все права защищены.</p>
     </footer>
-<script>
-document.getElementById("signup-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
 
-  const { data, error } = await supabase.auth.signUp({
-    email,
-    password
-  });
+    <script>
+        // Переключение между вкладками
+        document.querySelectorAll('.auth-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Убираем активный класс у всех вкладок и форм
+                document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+                
+                // Добавляем активный класс текущей вкладке и форме
+                tab.classList.add('active');
+                const tabName = tab.getAttribute('data-tab');
+                document.getElementById(`${tabName}-form`).classList.add('active');
+            });
+        });
 
-  if (error) {
-    document.getElementById("message").innerText = "Ошибка: " + error.message;
-  } else {
-    document.getElementById("message").innerText = "Проверь почту — пришло письмо для подтверждения!";
-  }
-});
-</script>
+        // Восстановление пароля
+        document.getElementById('forgot-password').addEventListener('click', async () => {
+            const email = document.getElementById('signin-email').value.trim();
+            if (!email) {
+                alert('Введите email для восстановления пароля');
+                return;
+            }
+
+            try {
+                const { error } = await supabase.auth.resetPasswordForEmail(email, {
+                    redirectTo: `${window.location.origin}/reset-password.html`
+                });
+                
+                if (error) throw error;
+                alert('Ссылка для сброса пароля отправлена на вашу почту!');
+            } catch (error) {
+                alert('Ошибка: ' + error.message);
+            }
+        });
+
+        // Регистрация
+        document.getElementById('register-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('register-email').value.trim();
+            const password = document.getElementById('register-password').value;
+            const age = document.getElementById('register-age').value;
+            const activity = document.getElementById('register-activity').value;
+            const goals = Array.from(document.querySelectorAll('input[name="goals"]:checked'))
+                              .map(checkbox => checkbox.value);
+
+            if (password.length < 6) {
+                setMessage('signup-msg', 'Пароль должен быть минимум 6 символов');
+                return;
+            }
+
+            try {
+                const redirectTo = `${window.location.origin}/index.html?confirmed=1`;
+                const { data, error } = await supabase.auth.signUp({
+                    email,
+                    password
+                }, { redirectTo });
+
+                if (error) throw error;
+
+                // Сохраняем дополнительную информацию в профиль
+                if (data.user) {
+                    await supabase.from('profiles').upsert({
+                        user_id: data.user.id,
+                        age: age || null,
+                        activity: activity || null,
+                        goals: goals.length > 0 ? goals : null,
+                        updated_at: new Date().toISOString()
+                    });
+                }
+
+                setMessage('signup-msg', '🎉 Проверьте почту — выслано письмо для подтверждения!', true);
+                document.getElementById('register-form').reset();
+            } catch (error) {
+                setMessage('signup-msg', 'Ошибка: ' + error.message);
+            }
+        });
+
+        // Вход
+        document.getElementById('signin-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('signin-email').value.trim();
+            const password = document.getElementById('signin-password').value;
+
+            try {
+                const { data, error } = await supabase.auth.signInWithPassword({
+                    email,
+                    password
+                });
+
+                if (error) throw error;
+
+                setMessage('signin-msg', 'Успешный вход! Перенаправляем...', true);
+                // Здесь можно добавить перенаправление в личный кабинет
+                setTimeout(() => {
+                    window.location.href = '/dashboard.html'; // Создадим позже
+                }, 1000);
+            } catch (error) {
+                setMessage('signin-msg', 'Ошибка входа: ' + error.message);
+            }
+        });
+
+        function setMessage(elementId, text, isSuccess = false) {
+            const element = document.getElementById(elementId);
+            element.textContent = text;
+            element.style.display = 'block';
+            element.className = `notice ${isSuccess ? 'success' : ''}`;
+        }
+
+        // Проверка подтверждения email
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('confirmed') === '1') {
+            setMessage('signin-msg', '🎉 Email подтверждён! Теперь вы можете войти.', true);
+        }
+    </script>
 </body>
 </html>
