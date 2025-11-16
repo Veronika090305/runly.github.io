@@ -235,48 +235,53 @@
             }
         });
 
-        // Регистрация
-        document.getElementById('register-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const email = document.getElementById('register-email').value.trim();
-            const password = document.getElementById('register-password').value;
-            const age = document.getElementById('register-age').value;
-            const activity = document.getElementById('register-activity').value;
-            const goals = Array.from(document.querySelectorAll('input[name="goals"]:checked'))
-                              .map(checkbox => checkbox.value);
+// Регистрация
+document.getElementById('register-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const email = document.getElementById('register-email').value.trim();
+    const password = document.getElementById('register-password').value;
+    const age = document.getElementById('register-age').value;
+    
+    // Получаем выбранные деятельности
+    const activities = Array.from(document.querySelectorAll('input[name="activity"]:checked'))
+                          .map(checkbox => checkbox.value);
+    
+    // Получаем выбранные цели
+    const goals = Array.from(document.querySelectorAll('input[name="goals"]:checked'))
+                      .map(checkbox => checkbox.value);
 
-            if (password.length < 6) {
-                setMessage('signup-msg', 'Пароль должен быть минимум 6 символов');
-                return;
-            }
+    if (password.length < 6) {
+        setMessage('signup-msg', 'Пароль должен быть минимум 6 символов');
+        return;
+    }
 
-            try {
-                const redirectTo = `${window.location.origin}/index.html?confirmed=1`;
-                const { data, error } = await supabase.auth.signUp({
-                    email,
-                    password
-                }, { redirectTo });
+    try {
+        const redirectTo = `${window.location.origin}/index.html?confirmed=1`;
+        const { data, error } = await supabase.auth.signUp({
+            email,
+            password
+        }, { redirectTo });
 
-                if (error) throw error;
+        if (error) throw error;
 
-                // Сохраняем дополнительную информацию в профиль
-                if (data.user) {
-                    await supabase.from('profiles').upsert({
-                        user_id: data.user.id,
-                        age: age || null,
-                        activity: activity || null,
-                        goals: goals.length > 0 ? goals : null,
-                        updated_at: new Date().toISOString()
-                    });
-                }
+        // Сохраняем дополнительную информацию в профиль
+        if (data.user) {
+            await supabase.from('profiles').upsert({
+                user_id: data.user.id,
+                age: age || null,
+                activity: activities.length > 0 ? activities : null,
+                goals: goals.length > 0 ? goals : null,
+                updated_at: new Date().toISOString()
+            });
+        }
 
-                setMessage('signup-msg', '🎉 Проверьте почту — выслано письмо для подтверждения!', true);
-                document.getElementById('register-form').reset();
-            } catch (error) {
-                setMessage('signup-msg', 'Ошибка: ' + error.message);
-            }
-        });
+        setMessage('signup-msg', '🎉 Проверьте почту — выслано письмо для подтверждения!', true);
+        document.getElementById('register-form').reset();
+    } catch (error) {
+        setMessage('signup-msg', 'Ошибка: ' + error.message);
+    }
+});
 
         // Вход
         document.getElementById('signin-form').addEventListener('submit', async (e) => {
