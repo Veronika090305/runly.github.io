@@ -348,6 +348,17 @@ button:hover, .button:hover {
     border-color: var(--cherry-blossom);
     box-shadow: 0 0 0 3px rgba(237, 175, 184, 0.2);
 }
+
+.terms .link {
+    color: var(--cherry-blossom);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.terms .link:hover {
+    text-decoration: underline;
+}
+
 /* Герой-секция */
 .hero-section {
     text-align: center;
