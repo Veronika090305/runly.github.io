@@ -367,19 +367,6 @@ button:hover, .button:hover {
     margin: -40px -20px 40px -20px;
 }
 
-.hero-content h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: var(--iron-grey);
-}
-
-.hero-content .lead {
-    font-size: 1.3em;
-    max-width: 600px;
-    margin: 0 auto;
-    color: var(--text-light);
-}
-
 /* Стили для герой-секции главной страницы */
 .hero-content {
     max-width: 800px; /* Делаем шире */
