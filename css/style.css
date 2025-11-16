@@ -166,13 +166,13 @@ select:focus {
     box-shadow: 0 0 0 3px rgba(237, 175, 184, 0.2);
 }
 
-/* Buttons */
+/* Buttons - ОБНОВЛЕНО: убрали градиент, сделали прямоугольными */
 button, .button {
-    background: linear-gradient(135deg, var(--cherry-blossom) 0%, var(--ash-grey) 100%);
+    background: var(--cherry-blossom); /* Убрали градиент */
     color: white;
     border: none;
     padding: 12px 25px;
-    border-radius: 25px;
+    border-radius: 8px; /* Меньше скругления - прямоугольная форма */
     cursor: pointer;
     font-size: 16px;
     font-weight: 500;
@@ -185,6 +185,7 @@ button, .button {
 button:hover, .button:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(237, 175, 184, 0.4);
+    background: #e89ca8; /* Немного темнее при наведении */
 }
 
 /* Auth page specific */
@@ -199,7 +200,7 @@ button:hover, .button:hover {
 }
 
 .tab.active {
-    background: linear-gradient(135deg, var(--cherry-blossom) 0%, var(--ash-grey) 100%);
+    background: var(--cherry-blossom); /* Убрали градиент */
     color: white;
 }
 
@@ -236,35 +237,41 @@ button:hover, .button:hover {
     font-size: 1em;
 }
 
-/* Герой-секция - ОБНОВЛЕНА */
+/* Герой-секция - ПОЛНОСТЬЮ ПЕРЕПИСАНА */
 .hero-section {
     display: flex;
     gap: 40px;
     align-items: flex-start;
-    padding: 40px 20px;
-    background: linear-gradient(135deg, var(--powder-petal) 0%, var(--dust-grey) 100%);
-    margin: -40px -20px 40px -20px;
+    padding: 40px;
+    background: linear-gradient(135deg, var(--ash-grey) 0%, var(--iron-grey) 100%); /* Фон как в хедере */
+    margin: 0 0 40px 0; /* Убрали отрицательные margin */
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    width: 100%; /* Такая же ширина как у секции сфер жизни */
 }
 
 .hero-content {
     flex: 1;
     text-align: left;
+    color: white; /* Белый текст на тёмном фоне */
 }
 
 .hero-content h2 {
     font-size: 1.8em;
     line-height: 1.3;
     margin-bottom: 20px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif; /* Новый шрифт как в навигации */
     font-weight: 600;
-    color: var(--iron-grey);
+    color: white; /* Белый цвет */
+    border-bottom: 2px solid var(--cherry-blossom); /* Сохранили акцент */
 }
 
 .hero-content .lead {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif; /* Новый шрифт */
     font-size: 1em;
     line-height: 1.7;
-    color: var(--text-light);
+    color: white; /* Белый текст */
+    font-weight: 400;
 }
 
 .auth-section {
@@ -272,7 +279,7 @@ button:hover, .button:hover {
     margin: 0;
 }
 
-/* Стили для авторизации остаются без изменений */
+/* Стили для авторизации */
 .auth-tabs {
     display: flex;
     margin-bottom: 20px;
@@ -449,7 +456,7 @@ button:hover, .button:hover {
     margin: 10px 0;
 }
 
-/* Сетка фич - ОБНОВЛЕНА */
+/* Сетка фич - ОБНОВЛЕНА: убрали смайлики, уменьшили высоту */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -459,24 +466,26 @@ button:hover, .button:hover {
 
 .feature-card {
     background: var(--powder-petal);
-    padding: 25px;
+    padding: 20px; /* Уменьшили padding для меньшей высоты */
     border-radius: var(--radius);
     border-left: 4px solid var(--cherry-blossom);
     text-align: center;
+    min-height: 80px; /* Уменьшили минимальную высоту */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .feature-card h3 {
-    margin-top: 15px;
+    margin: 0;
     color: var(--iron-grey);
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 1.1em;
+    text-transform: lowercase; /* Все буквы строчные */
 }
 
-.feature-emoji {
-    font-size: 2.5em;
-    display: block;
-}
+/* Убрали .feature-emoji полностью */
 
 /* Стили для страницы Telegram */
 .telegram-section {
@@ -495,10 +504,10 @@ button:hover, .button:hover {
 
 .telegram-link {
     display: inline-block;
-    background: linear-gradient(135deg, var(--cherry-blossom) 0%, var(--ash-grey) 100%);
+    background: var(--cherry-blossom); /* Убрали градиент */
     color: white;
     padding: 15px 30px;
-    border-radius: 25px;
+    border-radius: 8px; /* Прямоугольная форма */
     text-decoration: none;
     font-weight: 500;
     margin: 10px 0;
@@ -508,6 +517,7 @@ button:hover, .button:hover {
 .telegram-link:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(237, 175, 184, 0.4);
+    background: #e89ca8;
 }
 
 /* Responsive */
@@ -546,7 +556,7 @@ button:hover, .button:hover {
     .hero-section {
         flex-direction: column;
         gap: 30px;
-        padding: 30px 15px;
+        padding: 30px 20px;
     }
     
     .hero-content h2 {
@@ -579,5 +589,10 @@ button:hover, .button:hover {
     
     .features-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .feature-card {
+        min-height: 70px;
+        padding: 15px;
     }
 }
