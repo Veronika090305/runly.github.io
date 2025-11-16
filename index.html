@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RUNLI — Помощник для студенток и молодых специалисток</title>
+    <title>RUNLI заботится о гармонии по твоим правилам</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
@@ -20,8 +20,8 @@
         <h1>RUNLI</h1>
         <nav>
             <a href="index.html">Главная</a> |
-            <a href="about.html">О нас</a> |
-            <a href="contact.html">Контакты</a>
+            <a href="about.html">Наша философия</a> |
+            <a href="contact.html">Мы в Telegram</a>
         </nav>
     </header>
 
@@ -29,8 +29,8 @@
         <!-- Герой-секция -->
         <section class="hero-section">
             <div class="hero-content">
-                <h2>Твой помощник во взрослой жизни</h2>
-                <p class="lead">Проверенные гайды и практические инструменты для студенток и молодых специалисток. Всё в одном месте — просто и понятно, как совет от старшей подруги.</p>
+                <h2>Личное пространство, где забота о себе становится простой и естественной</h2>
+                <p class="lead">Мы создали RUNLI для тех, кто устал от хаоса разрозненных заметок, забытых приложений и красивых, но неработающих планеров. Здесь всё, что нужно для гармонии - от здоровья и финансов до быта и внутреннего спокойствия - собрано в единую и понятную систему, которая подстраивается под ваш ритм, а не диктует свои правила. Это не просто набор функций, а продуманная среда, где каждая деталь служит одной цели - освободить ваше время, энергию и мысли, чтобы вы могли сосредоточиться на самом главном: на себе. Ваша гармония - наш главный проект!</p>
             </div>
         </section>
 
@@ -54,143 +54,151 @@
                 <div id="signin-msg" class="notice" style="display:none"></div>
             </div>
 
-<!-- Форма регистрации -->
-<div id="signup-form" class="auth-form">
-    <form id="register-form">
-        <input type="email" id="register-email" placeholder="Email" required>
-        <input type="password" id="register-password" placeholder="Пароль (минимум 6 символов)" required>
-        
-        <div class="form-row">
-            <div class="form-group">
-                <label>Возраст</label>
-                <input type="number" id="register-age" placeholder="Сколько вам лет?" min="14" max="100" 
-                       style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 2px solid var(--dust-grey);">
-            </div>
-        </div>
+            <!-- Форма регистрации -->
+            <div id="signup-form" class="auth-form">
+                <form id="register-form">
+                    <input type="email" id="register-email" placeholder="Email" required>
+                    <input type="password" id="register-password" placeholder="Пароль (минимум 6 символов)" required>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Возраст</label>
+                            <input type="number" id="register-age" placeholder="Сколько вам лет?" min="14" max="100" 
+                                   style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 2px solid var(--dust-grey);">
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            <label>Чем занимаетесь? (можно выбрать несколько)</label>
-            <div class="checkbox-grid">
-                <div class="checkbox-card">
-                    <input type="checkbox" id="activity-school" name="activity" value="school">
-                    <label for="activity-school" class="checkbox-label">
-                        <span class="checkbox-icon">🎒</span>
-                        <span class="checkbox-text">Школьник</span>
-                    </label>
-                </div>
-                <div class="checkbox-card">
-                    <input type="checkbox" id="activity-student" name="activity" value="student">
-                    <label for="activity-student" class="checkbox-label">
-                        <span class="checkbox-icon">🎓</span>
-                        <span class="checkbox-text">Студент</span>
-                    </label>
-                </div>
-                <div class="checkbox-card">
-                    <input type="checkbox" id="activity-employed" name="activity" value="employed">
-                    <label for="activity-employed" class="checkbox-label">
-                        <span class="checkbox-icon">💼</span>
-                        <span class="checkbox-text">Работаю</span>
-                    </label>
-                </div>
-                <div class="checkbox-card">
-                    <input type="checkbox" id="activity-unemployed" name="activity" value="unemployed">
-                    <label for="activity-unemployed" class="checkbox-label">
-                        <span class="checkbox-icon">🌱</span>
-                        <span class="checkbox-text">Не работаю</span>
-                    </label>
-                </div>
-                <div class="checkbox-card">
-                    <input type="checkbox" id="activity-entrepreneur" name="activity" value="entrepreneur">
-                    <label for="activity-entrepreneur" class="checkbox-label">
-                        <span class="checkbox-icon">🚀</span>
-                        <span class="checkbox-text">Предприниматель</span>
-                    </label>
-                </div>
-                <div class="checkbox-card">
-                    <input type="checkbox" id="activity-other" name="activity" value="other">
-                    <label for="activity-other" class="checkbox-label">
-                        <span class="checkbox-icon">✨</span>
-                        <span class="checkbox-text">Другое</span>
-                    </label>
-                </div>
-            </div>
-        </div>
+                    <div class="form-group">
+                        <label>Ваша основная деятельность (можно выбрать несколько):</label>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-card">
+                                <input type="checkbox" id="activity-school" name="activity" value="school">
+                                <label for="activity-school" class="checkbox-label">
+                                    <span class="checkbox-icon">🏫</span>
+                                    <span class="checkbox-text">Школа</span>
+                                </label>
+                            </div>
+                            <div class="checkbox-card">
+                                <input type="checkbox" id="activity-student" name="activity" value="student">
+                                <label for="activity-student" class="checkbox-label">
+                                    <span class="checkbox-icon">🎓</span>
+                                    <span class="checkbox-text">Вуз или СПО</span>
+                                </label>
+                            </div>
+                            <div class="checkbox-card">
+                                <input type="checkbox" id="activity-employed" name="activity" value="employed">
+                                <label for="activity-employed" class="checkbox-label">
+                                    <span class="checkbox-icon">💼</span>
+                                    <span class="checkbox-text">Работа</span>
+                                </label>
+                            </div>
+                            <div class="checkbox-card">
+                                <input type="checkbox" id="activity-unemployed" name="activity" value="unemployed">
+                                <label for="activity-unemployed" class="checkbox-label">
+                                    <span class="checkbox-icon">🌱</span>
+                                    <span class="checkbox-text">Дом и семья</span>
+                                </label>
+                            </div>
+                            <div class="checkbox-card">
+                                <input type="checkbox" id="activity-entrepreneur" name="activity" value="entrepreneur">
+                                <label for="activity-entrepreneur" class="checkbox-label">
+                                    <span class="checkbox-icon">🚀</span>
+                                    <span class="checkbox-text">Бизнес</span>
+                                </label>
+                            </div>
+                            <div class="checkbox-card">
+                                <input type="checkbox" id="activity-other" name="activity" value="other">
+                                <label for="activity-other" class="checkbox-label">
+                                    <span class="checkbox-icon">✨</span>
+                                    <span class="checkbox-text">Другое</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            <label>Цели на RUNLI (можно выбрать несколько)</label>
-            <div class="checkbox-grid">
-                <div class="checkbox-card">
-                    <input type="checkbox" id="goal-finance" name="goals" value="finance">
-                    <label for="goal-finance" class="checkbox-label">
-                        <span class="checkbox-icon">💰</span>
-                        <span class="checkbox-text">Финансы и бюджет</span>
-                    </label>
-                </div>
-                <div class="checkbox-card">
-                    <input type="checkbox" id="goal-career" name="goals" value="career">
-                    <label for="goal-career" class="checkbox-label">
-                        <span class="checkbox-icon">🎯</span>
-                        <span class="checkbox-text">Карьера и работа</span>
-                    </label>
-                </div>
-                <div class="checkbox-card">
-                    <input type="checkbox" id="goal-study" name="goals" value="study">
-                    <label for="goal-study" class="checkbox-label">
-                        <span class="checkbox-icon">📚</span>
-                        <span class="checkbox-text">Учёба и образование</span>
-                    </label>
-                </div>
-                <div class="checkbox-card">
-                    <input type="checkbox" id="goal-health" name="goals" value="health">
-                    <label for="goal-health" class="checkbox-label">
-                        <span class="checkbox-icon">🌿</span>
-                        <span class="checkbox-text">Здоровье и самочувствие</span>
-                    </label>
-                </div>
-                <div class="checkbox-card">
-                    <input type="checkbox" id="goal-organization" name="goals" value="organization">
-                    <label for="goal-organization" class="checkbox-label">
-                        <span class="checkbox-icon">🏠</span>
-                        <span class="checkbox-text">Организация быта</span>
-                    </label>
-                </div>
-                <div class="checkbox-card">
-                    <input type="checkbox" id="goal-relationships" name="goals" value="relationships">
-                    <label for="goal-relationships" class="checkbox-label">
-                        <span class="checkbox-icon">💝</span>
-                        <span class="checkbox-text">Отношения и общение</span>
-                    </label>
-                </div>
-            </div>
-        </div>
+                    <div class="form-group">
+                        <label>Цели на RUNLI (можно выбрать несколько)</label>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-card">
+                                <input type="checkbox" id="goal-finance" name="goals" value="finance">
+                                <label for="goal-finance" class="checkbox-label">
+                                    <span class="checkbox-icon">💰</span>
+                                    <span class="checkbox-text">Финансы</span>
+                                </label>
+                            </div>
+                            <div class="checkbox-card">
+                                <input type="checkbox" id="goal-career" name="goals" value="career">
+                                <label for="goal-career" class="checkbox-label">
+                                    <span class="checkbox-icon">🎯</span>
+                                    <span class="checkbox-text">Карьера</span>
+                                </label>
+                            </div>
+                            <div class="checkbox-card">
+                                <input type="checkbox" id="goal-study" name="goals" value="study">
+                                <label for="goal-study" class="checkbox-label">
+                                    <span class="checkbox-icon">📚</span>
+                                    <span class="checkbox-text">Образование</span>
+                                </label>
+                            </div>
+                            <div class="checkbox-card">
+                                <input type="checkbox" id="goal-health" name="goals" value="health">
+                                <label for="goal-health" class="checkbox-label">
+                                    <span class="checkbox-icon">🌿</span>
+                                    <span class="checkbox-text">Здоровье</span>
+                                </label>
+                            </div>
+                            <div class="checkbox-card">
+                                <input type="checkbox" id="goal-organization" name="goals" value="organization">
+                                <label for="goal-organization" class="checkbox-label">
+                                    <span class="checkbox-icon">🏠</span>
+                                    <span class="checkbox-text">Быт</span>
+                                </label>
+                            </div>
+                            <div class="checkbox-card">
+                                <input type="checkbox" id="goal-relationships" name="goals" value="relationships">
+                                <label for="goal-relationships" class="checkbox-label">
+                                    <span class="checkbox-icon">💝</span>
+                                    <span class="checkbox-text">Отношения</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
 
-<div class="terms">
-    Нажимая «Зарегистрироваться», вы соглашаетесь с <a href="/terms.html" class="link">правилами сервиса</a>.
-</div>
-        <button type="submit" class="auth-button">Зарегистрироваться</button>
-    </form>
-    <div id="signup-msg" class="notice" style="display:none"></div>
-</div>
+                    <div class="terms">
+                        Нажимая «Зарегистрироваться», вы соглашаетесь с <a href="/terms.html" class="link">правилами сервиса</a>.
+                    </div>
+                    <button type="submit" class="auth-button">Зарегистрироваться</button>
+                    
+                    <!-- Блок повторной отправки письма -->
+                    <div id="resend-email" style="display: none; margin-top: 15px; text-align: center;">
+                        <p class="small muted">Не пришло письмо?</p>
+                        <button type="button" id="resend-btn" class="link" style="font-size: 14px;">Отправить ещё раз</button>
+                    </div>
+                    
+                </form>
+                <div id="signup-msg" class="notice" style="display:none"></div>
+            </div>
+        </section>
 
         <!-- Информационные секции -->
         <section>
             <h2>Что тебя ждёт в RUNLI</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <h3>💰 Управление бюджетом</h3>
-                    <p>Трекеры расходов, шаблоны бюджета, советы по накоплениям</p>
+                    <h3>Здоровье</h3>
+                    <p>Спорт, питание, психология</p>
                 </div>
                 <div class="feature-card">
-                    <h3>🎯 Карьера и поиск работы</h3>
-                    <p>Резюме, собеседования, карьерные трекеры</p>
+                    <h3>Управление финансами</h3>
+                    <p>Таблицы для распределения финансов, советы по накоплениям</p>
                 </div>
                 <div class="feature-card">
-                    <h3>🏠 Организация быта</h3>
-                    <p>Чек-листы, планировщики, советы по хозяйству</p>
-                </div>
-                <div class="feature-card">
-                    <h3>🌱 Личное развитие</h3>
+                    <h3>Личное развитие</h3>
                     <p>Привычки, цели, саморефлексия</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Организация домашнего уюта</h3>
+                    <p>Чек-листы, планировщики, советы по хозяйству</p>
                 </div>
             </div>
         </section>
@@ -229,59 +237,90 @@
                 });
                 
                 if (error) throw error;
-                alert('Ссылка для сброса пароля отправлена на вашу почту!');
+                alert('Ссылка для изменения пароля отправлена на почту 💌');
             } catch (error) {
                 alert('Ошибка: ' + error.message);
             }
         });
 
-// Регистрация
-document.getElementById('register-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const email = document.getElementById('register-email').value.trim();
-    const password = document.getElementById('register-password').value;
-    const age = document.getElementById('register-age').value;
-    
-    // Получаем выбранные деятельности
-    const activities = Array.from(document.querySelectorAll('input[name="activity"]:checked'))
-                          .map(checkbox => checkbox.value);
-    
-    // Получаем выбранные цели
-    const goals = Array.from(document.querySelectorAll('input[name="goals"]:checked'))
-                      .map(checkbox => checkbox.value);
+        // Регистрация
+        document.getElementById('register-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('register-email').value.trim();
+            const password = document.getElementById('register-password').value;
+            const age = document.getElementById('register-age').value;
+            
+            // Получаем выбранные деятельности
+            const activities = Array.from(document.querySelectorAll('input[name="activity"]:checked'))
+                                  .map(checkbox => checkbox.value);
+            
+            // Получаем выбранные цели
+            const goals = Array.from(document.querySelectorAll('input[name="goals"]:checked'))
+                              .map(checkbox => checkbox.value);
 
-    if (password.length < 6) {
-        setMessage('signup-msg', 'Пароль должен быть минимум 6 символов');
-        return;
-    }
+            if (password.length < 6) {
+                setMessage('signup-msg', 'Пароль должен состоять минимум из 6 символов 🔐');
+                return;
+            }
 
-    try {
-        const redirectTo = `${window.location.origin}/index.html?confirmed=1`;
-        const { data, error } = await supabase.auth.signUp({
-            email,
-            password
-        }, { redirectTo });
+            try {
+                const redirectTo = `${window.location.origin}/index.html?confirmed=1`;
+                const { data, error } = await supabase.auth.signUp({
+                    email,
+                    password
+                }, { redirectTo });
 
-        if (error) throw error;
+                if (error) throw error;
 
-        // Сохраняем дополнительную информацию в профиль
-        if (data.user) {
-            await supabase.from('profiles').upsert({
-                user_id: data.user.id,
-                age: age || null,
-                activity: activities.length > 0 ? activities : null,
-                goals: goals.length > 0 ? goals : null,
-                updated_at: new Date().toISOString()
-            });
-        }
+                // Сохраняем дополнительную информацию в профиль
+                if (data.user) {
+                    await supabase.from('profiles').upsert({
+                        user_id: data.user.id,
+                        age: age || null,
+                        activity: activities.length > 0 ? activities : null,
+                        goals: goals.length > 0 ? goals : null,
+                        updated_at: new Date().toISOString()
+                    });
+                }
 
-        setMessage('signup-msg', '🎉 Проверьте почту — выслано письмо для подтверждения!', true);
-        document.getElementById('register-form').reset();
-    } catch (error) {
-        setMessage('signup-msg', 'Ошибка: ' + error.message);
-    }
-});
+                setMessage('signup-msg', 
+                    `Квест по регистрации почти пройден! Осталось забрать ключ-ссылку из вашего почтового сундука!                   
+
+Без подтверждения почты вы уже можете войти в свой аккаунт, 
+но без перехода по ссылке из письма на почте в будущем
+не получится восстановить пароль, если забудете его`, 
+                    true
+                );
+                
+                // Показываем кнопку повторной отправки
+                document.getElementById('resend-email').style.display = 'block';
+                
+            } catch (error) {
+                setMessage('signup-msg', 'Ошибка: ' + error.message);
+            }
+        });
+
+        // Повторная отправка письма подтверждения
+        document.getElementById('resend-btn').addEventListener('click', async () => {
+            const email = document.getElementById('register-email').value.trim();
+            if (!email) {
+                setMessage('signup-msg', 'Введите email для отправки письма');
+                return;
+            }
+
+            try {
+                const { error } = await supabase.auth.resend({
+                    type: 'signup',
+                    email: email
+                });
+                
+                if (error) throw error;
+                setMessage('signup-msg', 'Письмо отправлено повторно! Проверьте почту (и папку "Спам")', true);
+            } catch (error) {
+                setMessage('signup-msg', 'Ошибка: ' + error.message);
+            }
+        });
 
         // Вход
         document.getElementById('signin-form').addEventListener('submit', async (e) => {
@@ -298,15 +337,23 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
 
                 if (error) throw error;
 
-                setMessage('signin-msg', 'Успешный вход! Перенаправляем...', true);
-                // Здесь можно добавить перенаправление в личный кабинет
+                // Проверяем, подтверждена ли почта
+                const { data: { user } } = await supabase.auth.getUser();
+                let message = 'Открываем ваш уютный уголок...';
+                
+                if (user && !user.email_confirmed_at) {
+                    message += '\n\n💡 Почта ещё не подтверждена. Вы можете пользоваться аккаунтом, но не забывайте пароль';
+                }
+
+                setMessage('signin-msg', message, true);
+                
                 setTimeout(() => {
-            window.location.href = '/dashboard.html';
-        }, 1000);
-    } catch (error) {
-        setMessage('signin-msg', 'Ошибка входа: ' + error.message);
-    }
-});
+                    window.location.href = '/dashboard.html';
+                }, 1000);
+            } catch (error) {
+                setMessage('signin-msg', 'Ошибка входа: ' + error.message);
+            }
+        });
 
         function setMessage(elementId, text, isSuccess = false) {
             const element = document.getElementById(elementId);
@@ -318,7 +365,7 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
         // Проверка подтверждения email
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('confirmed') === '1') {
-            setMessage('signin-msg', '🎉 Email подтверждён! Теперь вы можете войти.', true);
+            setMessage('signin-msg', 'Подтверждение получено! Ваше личное пространство открыто', true);
         }
     </script>
 </body>
