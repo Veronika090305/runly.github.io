@@ -1,4 +1,4 @@
-/* style.css */
+/* style.css - Cherry Blossom Theme for Runli.ru */
 :root {
     --cherry-blossom: #edafb8;
     --powder-petal: #f7e1d7;
@@ -7,7 +7,12 @@
     --iron-grey: #4a5759;
     --text-dark: #2a3439;
     --text-light: #5c6b73;
+    --radius: 12px;
+    --shadow: 0 8px 24px rgba(74, 87, 89, 0.1);
+    --transition: 0.3s ease;
 }
+
+* { box-sizing: border-box; }
 
 body {
     font-family: 'Inter', 'Arial', sans-serif;
@@ -19,6 +24,7 @@ body {
     min-height: 100vh;
 }
 
+/* Header */
 header {
     background: linear-gradient(135deg, var(--ash-grey) 0%, var(--iron-grey) 100%);
     color: white;
@@ -44,7 +50,7 @@ nav a {
     margin: 0 20px;
     padding: 8px 16px;
     border-radius: 20px;
-    transition: all 0.3s ease;
+    transition: all var(--transition);
     font-weight: 500;
 }
 
@@ -54,6 +60,7 @@ nav a:hover {
     transform: translateY(-2px);
 }
 
+/* Main Content */
 main {
     padding: 40px 20px;
     max-width: 1200px;
@@ -64,17 +71,18 @@ section {
     background: white;
     padding: 30px;
     margin: 25px 0;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(176, 196, 177, 0.15);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
     border: 1px solid var(--dust-grey);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform var(--transition), box-shadow var(--transition);
 }
 
 section:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(176, 196, 177, 0.25);
+    box-shadow: 0 12px 30px rgba(176, 196, 177, 0.25);
 }
 
+/* Typography */
 h1, h2, h3 {
     color: var(--iron-grey);
     font-weight: 400;
@@ -86,6 +94,7 @@ h2 {
     margin-top: 0;
 }
 
+/* Footer */
 footer {
     background-color: var(--iron-grey);
     color: white;
@@ -94,11 +103,11 @@ footer {
     margin-top: 40px;
 }
 
-/* Стили для форм */
+/* Forms */
 form {
     background: var(--powder-petal);
     padding: 25px;
-    border-radius: 12px;
+    border-radius: var(--radius);
     margin: 20px 0;
 }
 
@@ -113,13 +122,11 @@ select {
     border: 2px solid var(--dust-grey);
     border-radius: 8px;
     font-size: 16px;
-    transition: all 0.3s ease;
+    transition: all var(--transition);
     background: white;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
+input:focus,
 textarea:focus,
 select:focus {
     outline: none;
@@ -127,6 +134,7 @@ select:focus {
     box-shadow: 0 0 0 3px rgba(237, 175, 184, 0.2);
 }
 
+/* Buttons */
 button, .button {
     background: linear-gradient(135deg, var(--cherry-blossom) 0%, var(--ash-grey) 100%);
     color: white;
@@ -136,39 +144,44 @@ button, .button {
     cursor: pointer;
     font-size: 16px;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: all var(--transition);
     text-decoration: none;
     display: inline-block;
 }
 
 button:hover, .button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(237, 175, 184, 0.4);
+    box-shadow: 0 8px 20px rgba(237, 175, 184, 0.4);
 }
 
-/* Специальные стили для страницы аутентификации */
+/* Auth page specific */
 .card {
     background: white;
-    border-radius: 15px;
-    box-shadow: 0 8px 30px rgba(74, 87, 89, 0.1);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 25px;
+    margin-bottom: 20px;
     border: 1px solid var(--dust-grey);
 }
 
 .tab.active {
     background: linear-gradient(135deg, var(--cherry-blossom) 0%, var(--ash-grey) 100%);
+    color: white;
 }
 
 .notice {
     background: var(--powder-petal);
     border-left: 4px solid var(--cherry-blossom);
+    padding: 12px 15px;
+    border-radius: 8px;
 }
 
-.success {
+.notice.success {
     background: rgba(176, 196, 177, 0.2);
     border-left-color: var(--ash-grey);
 }
 
-/* Адаптивность */
+/* Responsive */
 @media (max-width: 768px) {
     header {
         padding: 20px 15px;
@@ -192,21 +205,4 @@ button:hover, .button:hover {
     section {
         padding: 20px;
     }
-}
-
-/* Утилиты */
-.text-muted {
-    color: var(--text-light);
-}
-
-.bg-powder {
-    background-color: var(--powder-petal);
-}
-
-.bg-dust {
-    background-color: var(--dust-grey);
-}
-
-.bg-ash {
-    background-color: var(--ash-grey);
 }
