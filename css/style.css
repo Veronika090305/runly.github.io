@@ -1,157 +1,212 @@
-/* css/style.css — RUNLI theme update
-   Фон: песочный (#F5F5F5)
-   Текст: темно-серый/почти черный (#2C3E50)
-   Акцент/CTA: коралловый (#FF6B6B)
-   Хедер/футер/второстепенные: глубокий синий (#2C3E50)
-*/
-
-:root{
-  --bg: #F5F5F5;        /* песочный фон */
-  --text: #2C3E50;      /* темно-серый / глубокий синий (также используется для хедера/футера) */
-  --accent: #FF6B6B;    /* коралловый — primary buttons / highlights */
-  --muted: #6b7280;     /* вторичный текст */
-  --card: #FFFFFF;      /* карточки и контейнеры */
-  --radius: 10px;
-  --shadow: 0 8px 24px rgba(44,62,80,0.06);
-  --transition: 180ms ease;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+/* style.css */
+:root {
+    --cherry-blossom: #edafb8;
+    --powder-petal: #f7e1d7;
+    --dust-grey: #dedbd2;
+    --ash-grey: #b0c4b1;
+    --iron-grey: #4a5759;
+    --text-dark: #2a3439;
+    --text-light: #5c6b73;
 }
 
-/* Base */
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  padding:0;
-  min-height:100%;
-  background-color:var(--bg);
-  color:var(--text);
-  font-size:16px;
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
+body {
+    font-family: 'Inter', 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: linear-gradient(135deg, var(--powder-petal) 0%, var(--dust-grey) 100%);
+    min-height: 100vh;
 }
 
-/* Layout elements */
-header, footer{
-  background-color: var(--text); /* глубокий синий */
-  color: white;
-  padding: 18px 20px;
+header {
+    background: linear-gradient(135deg, var(--ash-grey) 0%, var(--iron-grey) 100%);
+    color: white;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(74, 87, 89, 0.1);
 }
 
-header a, footer a {
-  color: white;
-  text-decoration: none;
+header h1 {
+    margin: 0 0 15px 0;
+    font-size: 2.5em;
+    font-weight: 300;
+    letter-spacing: 1px;
 }
 
-nav{
-  display:flex;
-  gap:12px;
-  justify-content:center;
-  align-items:center;
-  flex-wrap:wrap;
+nav {
+    margin-top: 15px;
 }
 
-/* Main container */
-main{
-  max-width:1100px;
-  margin: 28px auto;
-  padding: 0 18px;
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-weight: 500;
 }
 
-/* Cards / panels */
-.card{
-  background: var(--card);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 18px;
-  margin-bottom: 18px;
-  color: var(--text);
+nav a:hover {
+    background-color: rgba(237, 175, 184, 0.2);
+    text-decoration: none;
+    transform: translateY(-2px);
 }
 
-/* Typography */
-h1,h2,h3{ color:var(--text); margin:0 0 12px 0; font-weight:600 }
-p{ margin:0 0 12px 0; color:var(--text) }
-.small{ font-size:0.92rem; color:var(--muted) }
-
-/* Links */
-a{ color:var(--accent); text-decoration:none; transition: color var(--transition) }
-a:hover{ color: darken(var(--accent), 6%); text-decoration:underline; }
-
-/* Buttons */
-button, .btn {
-  display:inline-block;
-  padding:10px 14px;
-  border-radius:8px;
-  border:0;
-  cursor:pointer;
-  font-weight:600;
-  transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+main {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Primary CTA — коралловый */
-.btn-primary, button[type="submit"]{
-  background: var(--accent);
-  color: white;
-  box-shadow: 0 6px 18px rgba(255,107,107,0.12);
-}
-.btn-primary:hover{ transform: translateY(-2px); opacity:0.98 }
-
-/* Secondary (header/footer style) — глубокий синий */
-.btn-secondary{
-  background: var(--text);
-  color: white;
-  box-shadow: none;
-}
-.btn-secondary:hover{ opacity:0.9 }
-
-/* Ghost / link style button */
-.btn-ghost{
-  background: transparent;
-  color: var(--text);
-  border: 1px solid rgba(44,62,80,0.06);
+section {
+    background: white;
+    padding: 30px;
+    margin: 25px 0;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(176, 196, 177, 0.15);
+    border: 1px solid var(--dust-grey);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Form inputs */
-input[type="text"], input[type="email"], input[type="password"], select, textarea{
-  width:100%;
-  padding:10px 12px;
-  border-radius:8px;
-  border:1px solid rgba(44,62,80,0.12);
-  background: #fff;
-  color: var(--text);
-  font-size:1rem;
-  transition: box-shadow var(--transition), border-color var(--transition);
-}
-input:focus, textarea:focus, select:focus{
-  outline:none;
-  border-color: var(--accent);
-  box-shadow: 0 6px 18px rgba(255,107,107,0.08);
+section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(176, 196, 177, 0.25);
 }
 
-/* Notices / messages */
-.notice{
-  padding:10px 12px;
-  border-radius:8px;
-  background:#fff7ed;
-  color:#7a4a00;
-}
-.notice.success{ background:#ecfdf5; color:#064e3b; }
-
-/* Footer small print */
-footer p{ margin:0; font-size:0.95rem }
-
-/* Helpers */
-.row{ display:flex; gap:12px; align-items:center; }
-.col{ flex:1; }
-
-/* Responsive tweaks */
-@media (max-width:900px){
-  nav{ justify-content:center; padding-top:8px; }
-  .wrap{ padding:12px; }
-  main{ padding: 0 14px; }
+h1, h2, h3 {
+    color: var(--iron-grey);
+    font-weight: 400;
 }
 
-/* Utility color helpers (optional, useful in templates) */
-.text-accent { color: var(--accent); }
-.bg-card { background: var(--card); }
+h2 {
+    border-bottom: 2px solid var(--cherry-blossom);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+footer {
+    background-color: var(--iron-grey);
+    color: white;
+    text-align: center;
+    padding: 25px 10px;
+    margin-top: 40px;
+}
+
+/* Стили для форм */
+form {
+    background: var(--powder-petal);
+    padding: 25px;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 8px 0;
+    border: 2px solid var(--dust-grey);
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--cherry-blossom);
+    box-shadow: 0 0 0 3px rgba(237, 175, 184, 0.2);
+}
+
+button, .button {
+    background: linear-gradient(135deg, var(--cherry-blossom) 0%, var(--ash-grey) 100%);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover, .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(237, 175, 184, 0.4);
+}
+
+/* Специальные стили для страницы аутентификации */
+.card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(74, 87, 89, 0.1);
+    border: 1px solid var(--dust-grey);
+}
+
+.tab.active {
+    background: linear-gradient(135deg, var(--cherry-blossom) 0%, var(--ash-grey) 100%);
+}
+
+.notice {
+    background: var(--powder-petal);
+    border-left: 4px solid var(--cherry-blossom);
+}
+
+.success {
+    background: rgba(176, 196, 177, 0.2);
+    border-left-color: var(--ash-grey);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    header {
+        padding: 20px 15px;
+    }
+    
+    header h1 {
+        font-size: 2em;
+    }
+    
+    nav a {
+        margin: 0 10px;
+        padding: 6px 12px;
+        display: inline-block;
+        margin-bottom: 5px;
+    }
+    
+    main {
+        padding: 20px 15px;
+    }
+    
+    section {
+        padding: 20px;
+    }
+}
+
+/* Утилиты */
+.text-muted {
+    color: var(--text-light);
+}
+
+.bg-powder {
+    background-color: var(--powder-petal);
+}
+
+.bg-dust {
+    background-color: var(--dust-grey);
+}
+
+.bg-ash {
+    background-color: var(--ash-grey);
+}
