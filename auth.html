@@ -4,41 +4,250 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>RUNLI — Вход / Регистрация</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#faf9f7;
+      --cherry-blossom: #edafb8;
+      --powder-petal: #f7e1d7;
+      --dust-grey: #dedbd2;
+      --ash-grey: #b0c4b1;
+      --iron-grey: #4a5759;
+      --text-dark: #2a3439;
+      --text-light: #5c6b73;
       --card:#ffffff;
-      --accent:#2b8a7a;
       --muted:#6b7280;
       --radius:12px;
       --shadow: 0 6px 18px rgba(20,20,30,0.06);
-      font-family: Inter, Arial, sans-serif;
     }
     *{box-sizing:border-box}
-    body{margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; background: linear-gradient(180deg,#fbfbfb, #f1f5f4); color:#0f172a; padding:24px;}
+    body{
+      margin:0; 
+      min-height:100vh; 
+      display:flex; 
+      align-items:center; 
+      justify-content:center; 
+      background: linear-gradient(135deg, var(--powder-petal) 0%, var(--dust-grey) 100%); 
+      color:var(--text-dark); 
+      padding:24px;
+      font-family: 'Inter', sans-serif;
+    }
     .wrap{width:100%; max-width:920px; display:grid; grid-template-columns:1fr 420px; gap:28px;}
     .hero{background:transparent; padding:28px;}
-    .card{background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px;}
-    h1{margin:0 0 12px 0; font-size:20px;}
-    p.lead{color:var(--muted); margin-top:8px}
+    .card{
+      background:var(--card); 
+      border-radius:var(--radius); 
+      box-shadow:var(--shadow); 
+      padding:25px;
+      border: 1px solid var(--dust-grey);
+    }
+    h1{
+      margin:0 0 12px 0; 
+      font-size:24px;
+      font-family: 'Lora', serif;
+      font-weight: 500;
+      color: var(--iron-grey);
+    }
+    p.lead{
+      color:var(--text-light); 
+      margin-top:8px;
+      line-height: 1.6;
+    }
     .tabs{display:flex; gap:8px; margin-bottom:16px}
-    .tab{flex:1; text-align:center; padding:10px 12px; border-radius:10px; cursor:pointer; background:#f4f6f6; color:var(--muted); user-select:none;}
-    .tab.active{background:linear-gradient(90deg,var(--accent), #2fada0); color:white; font-weight:600}
+    .tab{
+      flex:1; 
+      text-align:center; 
+      padding:10px 12px; 
+      border-radius:10px; 
+      cursor:pointer; 
+      background:#f4f6f6; 
+      color:var(--muted); 
+      user-select:none;
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
+    }
+    .tab.active{
+      background:linear-gradient(90deg, var(--cherry-blossom), var(--ash-grey)); 
+      color:white; 
+      font-weight:600
+    }
     form{display:grid; gap:10px;}
-    input[type="email"], input[type="password"], select, textarea{width:100%; padding:10px 12px; border-radius:8px; border:1px solid #e6e7ea; font-size:14px;}
-    button{background:var(--accent); color:white; border:0; padding:10px 12px; border-radius:8px; cursor:pointer; font-weight:600;}
-    .small{font-size:13px; color:var(--muted)}
+    input[type="email"], input[type="password"], select, textarea{
+      width:100%; 
+      padding:12px 15px; 
+      border-radius:8px; 
+      border:2px solid var(--dust-grey); 
+      font-size:14px;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s ease;
+    }
+    input:focus, select:focus{
+      outline: none;
+      border-color: var(--cherry-blossom);
+      box-shadow: 0 0 0 3px rgba(237, 175, 184, 0.2);
+    }
+    button{
+      background:linear-gradient(135deg, var(--cherry-blossom) 0%, var(--ash-grey) 100%); 
+      color:white; 
+      border:0; 
+      padding:12px 25px; 
+      border-radius:25px; 
+      cursor:pointer; 
+      font-weight:600;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s ease;
+    }
+    button:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(237, 175, 184, 0.4);
+    }
+    .small{font-size:13px; color:var(--muted); font-family: 'Inter', sans-serif;}
     .muted{color:var(--muted)}
     .row{display:flex; gap:8px}
     .row .col{flex:1}
-    .notice{padding:10px;border-radius:8px;background:#fff7ed;color:#7a4a00;font-size:14px;margin-top:8px}
-    .success{background:#ecfdf5;color:#064e3b}
-    .link{color:var(--accent); cursor:pointer; text-decoration:underline; font-weight:600; background:none; border:0; padding:0;}
-    @media(max-width:900px){ .wrap{grid-template-columns:1fr; padding:0} }
+    .notice{
+      padding:12px 15px;
+      border-radius:8px;
+      background:var(--powder-petal);
+      color:#7a4a00;
+      font-size:14px;
+      margin-top:8px;
+      border-left: 4px solid var(--cherry-blossom);
+      font-family: 'Inter', sans-serif;
+    }
+    .success{
+      background:rgba(176, 196, 177, 0.2);
+      color:#064e3b;
+      border-left-color: var(--ash-grey);
+    }
+    .link{
+      color:var(--cherry-blossom); 
+      cursor:pointer; 
+      text-decoration:underline; 
+      font-weight:600; 
+      background:none; 
+      border:0; 
+      padding:0;
+      font-family: 'Inter', sans-serif;
+    }
+    @media(max-width:900px){ 
+      .wrap{
+        grid-template-columns:1fr; 
+        padding:0;
+      } 
+    }
   </style>
 </head>
 <body>
+  <!-- остальная часть кода auth.html остается без изменений -->
+  <div class="wrap">
+    <div class="hero">
+      <div class="card">
+        <h1>RUNLI — личный кабинет</h1>
+        <p class="lead">Создай аккаунт, сохраняй подборки и возвращайся в любой момент. Восстановление пароля и подтверждение по e-mail уже настроены.</p>
+        <hr style="margin:16px 0;">
+        <p class="small">Что ты получаешь:</p>
+        <ul class="small">
+          <li>Сохранённые подборки в профиле</li>
+          <li>Безопасная авторизация через e-mail</li>
+          <li>Восстановление пароля по e-mail</li>
+        </ul>
+        <p style="margin-top:12px" class="small muted">Если что-то не работает — проверь SMTP в Supabase (Authentication → Emails → SMTP Settings) или используй встроенный сервис.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="tabs">
+          <div id="tab-signin" class="tab active">Вход</div>
+          <div id="tab-signup" class="tab">Регистрация</div>
+        </div>
+
+        <!-- остальной код формы остается без изменений -->
+        <!-- Вход -->
+        <div id="panel-signin">
+          <form id="signin-form">
+            <input type="email" id="signin-email" placeholder="Email" required autocomplete="email">
+            <input type="password" id="signin-password" placeholder="Пароль" required autocomplete="current-password">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div class="small muted">Нет аккаунта? <button id="toSignup" class="link">Зарегистрироваться</button></div>
+              <div class="small"><button id="toReset" class="link">Забыли пароль?</button></div>
+            </div>
+            <button type="submit">Войти</button>
+          </form>
+          <div id="signin-msg" class="notice" style="display:none"></div>
+        </div>
+
+        <!-- Регистрация -->
+        <div id="panel-signup" style="display:none">
+          <form id="signup-form">
+            <input type="email" id="signup-email" placeholder="Email" required autocomplete="email">
+            <input type="password" id="signup-password" placeholder="Пароль (мин. 6 символов)" required autocomplete="new-password">
+            <div class="row">
+              <div class="col">
+                <label class="small">Пол</label>
+                <select id="signup-gender">
+                  <option value="">Не указывать</option>
+                  <option value="female">Женщина</option>
+                  <option value="male">Мужчина</option>
+                  <option value="other">Другое</option>
+                  <option value="no_answer">Предпочитаю не указывать</option>
+                </select>
+              </div>
+              <div class="col">
+                <label class="small">Возраст</label>
+                <select id="signup-age">
+                  <option value="">Не указывать</option>
+                  <option value="<18">Младше 18</option>
+                  <option value="18-25">18–25</option>
+                  <option value="26-40">26–40</option>
+                  <option value="41-60">41–60</option>
+                  <option value=">60">Больше 60</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="font-size:12px;color:var(--muted); margin-top:8px">Нажимая «Зарегистрироваться», вы соглашаетесь с правилами сервиса.</div>
+            <button type="submit">Зарегистрироваться</button>
+          </form>
+          <div id="signup-msg" class="notice" style="display:none"></div>
+        </div>
+
+        <!-- Сброс пароля -->
+        <div id="panel-reset" style="display:none; margin-top:8px">
+          <form id="reset-form">
+            <input type="email" id="reset-email" placeholder="Введите email для сброса" required>
+            <div class="small muted" style="margin-bottom:8px">Мы отправим ссылку для сброса пароля на указанный адрес.</div>
+            <button type="submit">Отправить ссылку для сброса</button>
+          </form>
+          <div id="reset-msg" class="notice" style="display:none"></div>
+        </div>
+
+      </div>
+
+      <div style="margin-top:12px" class="card">
+        <div id="profile-block" style="display:none">
+          <div><strong id="profile-email"></strong></div>
+          <div class="small muted" id="profile-info"></div>
+          <div style="margin-top:10px">
+            <button id="btn-logout" style="background:#f43f5e">Выйти</button>
+            <button id="btn-dashboard" style="margin-left:8px;background:#111827">Мой профиль</button>
+          </div>
+        </div>
+        <div id="not-signed" style="display:block" class="small muted">Вы не авторизованы</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Supabase client и скрипты остаются без изменений -->
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script>
+    // ... весь ваш JavaScript код остается без изменений ...
+  </script>
+</body>
+</html>
 
   <div class="wrap">
     <div class="hero">
