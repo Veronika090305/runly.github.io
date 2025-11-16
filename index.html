@@ -225,23 +225,23 @@
 
         // Восстановление пароля
         document.getElementById('forgot-password').addEventListener('click', async () => {
-            const email = document.getElementById('signin-email').value.trim();
-            if (!email) {
-                alert('Введите email для восстановления пароля');
-                return;
-            }
+    const email = document.getElementById('signin-email').value.trim();
+    if (!email) {
+        alert('Введите email для восстановления пароля');
+        return;
+    }
 
-            try {
-                const { error } = await supabase.auth.resetPasswordForEmail(email, {
-                    redirectTo: `${window.location.origin}/reset-password.html`
-                });
-                
-                if (error) throw error;
-                alert('Ссылка для изменения пароля отправлена на почту 💌');
-            } catch (error) {
-                alert('Ошибка: ' + error.message);
-            }
+    try {
+        const { error } = await supabase.auth.resetPasswordForEmail(email, {
+            redirectTo: `${window.location.origin}/reset-password.html`
         });
+        
+        if (error) throw error;
+        alert('Ссылка для изменения пароля отправлена на почту 💌');
+    } catch (error) {
+        alert('Ошибка: ' + error.message);
+    }
+});
 
         // Регистрация
         document.getElementById('register-form').addEventListener('submit', async (e) => {
