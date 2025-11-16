@@ -7,6 +7,7 @@
     --iron-grey: #4a5759;
     --text-dark: #2a3439;
     --text-light: #5c6b73;
+    --new-green: #8B9D91; /* Новый зелёный цвет */
     --radius: 12px;
     --shadow: 0 8px 24px rgba(74, 87, 89, 0.1);
     --transition: 0.3s ease;
@@ -135,7 +136,7 @@ footer p {
 
 /* Forms */
 form {
-    background: white; /* Изменили на белый фон вместо бежевого */
+    background: white;
     padding: 25px;
     border-radius: var(--radius);
     margin: 20px 0;
@@ -238,13 +239,13 @@ button:hover, .button:hover {
     font-size: 1em;
 }
 
-/* Герой-секция - ОБНОВЛЕНА: тёмно-зелёный фон без градиента */
+/* Герой-секция - ОБНОВЛЕНА: новый зелёный фон #8B9D91 */
 .hero-section {
     display: flex;
     gap: 40px;
     align-items: flex-start;
     padding: 40px;
-    background: var(--iron-grey); /* Тёмно-зелёный однотонный фон */
+    background: var(--new-green); /* Новый зелёный цвет */
     margin: 0 0 40px 0;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
@@ -280,11 +281,11 @@ button:hover, .button:hover {
     margin: 0;
 }
 
-/* Стили для авторизации - ОБНОВЛЕНЫ: убрали бежевый фон */
+/* Стили для авторизации - ОБНОВЛЕНЫ: розовый текст для неактивных вкладок */
 .auth-tabs {
     display: flex;
     margin-bottom: 20px;
-    background: white; /* Белый фон вместо бежевого */
+    background: white;
     border-radius: var(--radius);
     padding: 4px;
     border: 1px solid var(--dust-grey);
@@ -300,12 +301,13 @@ button:hover, .button:hover {
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     transition: all var(--transition);
+    color: var(--cherry-blossom); /* Розовый текст для неактивных вкладок */
 }
 
 .auth-tab.active {
-    background: var(--cherry-blossom); /* Розовый фон для активной вкладки */
+    background: var(--cherry-blossom);
     box-shadow: var(--shadow);
-    color: white;
+    color: white; /* Белый текст для активной вкладки */
 }
 
 .auth-form {
@@ -320,7 +322,7 @@ button:hover, .button:hover {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    background: white; /* Белый фон форм */
+    background: white;
 }
 
 .form-row {
@@ -338,6 +340,44 @@ button:hover, .button:hover {
     font-weight: 500;
     color: var(--text-dark);
     font-size: 0.9em;
+}
+
+/* Стили для ссылки "Не помню пароль" - ВЕРНУЛИ КАК БЫЛО */
+.auth-links {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+#forgot-password {
+    background: none;
+    border: none;
+    color: var(--cherry-blossom);
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    transition: color var(--transition);
+}
+
+#forgot-password:hover {
+    color: #e89ca8;
+    text-decoration: underline;
+    transform: none;
+    box-shadow: none;
+}
+
+.auth-button {
+    margin-top: 10px;
+}
+
+.terms {
+    font-size: 0.8em;
+    color: var(--text-light);
+    text-align: center;
+    margin: 10px 0;
 }
 
 /* Стили для красивых чекбоксов */
@@ -443,25 +483,9 @@ button:hover, .button:hover {
     text-decoration: underline;
 }
 
-.auth-links {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.auth-button {
-    margin-top: 10px;
-}
-
-.terms {
-    font-size: 0.8em;
-    color: var(--text-light);
-    text-align: center;
-    margin: 10px 0;
-}
-
-/* Сетка фич - ОБНОВЛЕНА: тёмно-зелёный фон секции */
+/* Сетка фич - ОБНОВЛЕНА: новый зелёный фон #8B9D91 */
 .features-section {
-    background: var(--iron-grey); /* Тёмно-зелёный фон для всей секции */
+    background: var(--new-green); /* Новый зелёный цвет */
     color: white;
     padding: 30px;
     margin: 25px 0;
@@ -470,7 +494,7 @@ button:hover, .button:hover {
 }
 
 .features-section h2 {
-    color: white; /* Белый цвет для заголовка */
+    color: white;
     border-bottom: 2px solid var(--cherry-blossom);
 }
 
@@ -482,7 +506,7 @@ button:hover, .button:hover {
 }
 
 .feature-card {
-    background: var(--powder-petal); /* Карточки остаются бежевыми */
+    background: var(--powder-petal);
     padding: 20px;
     border-radius: var(--radius);
     border-left: 4px solid var(--cherry-blossom);
