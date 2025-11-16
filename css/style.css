@@ -15,7 +15,7 @@
 * { box-sizing: border-box; }
 
 body {
-    font-family: 'Cormorant', serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -39,7 +39,7 @@ header h1 {
     font-size: 2.5em;
     font-weight: 300;
     letter-spacing: -0.5px;
-    font-family: 'Lora', 'Cormorant', serif;
+    font-family: 'Lora', 'Inter', serif;
 }
 
 nav {
@@ -54,8 +54,7 @@ nav a {
     border-radius: 20px;
     transition: all var(--transition);
     font-weight: 500;
-    font-family: 'Cormorant', serif;
-    font-size: 1.1em;
+    font-family: 'Inter', sans-serif;
 }
 
 nav a:hover {
@@ -90,7 +89,7 @@ section:hover {
 h1, h2, h3 {
     color: var(--iron-grey);
     font-weight: 500;
-    font-family: 'Cormorant', serif;
+    font-family: 'Lora', 'Inter', serif;
     line-height: 1.3;
 }
 
@@ -113,8 +112,8 @@ h3 {
 }
 
 p {
-    font-family: 'Cormorant', serif;
-    font-size: 1.15em;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05em;
     line-height: 1.7;
     color: var(--text-dark);
 }
@@ -126,12 +125,12 @@ footer {
     text-align: center;
     padding: 25px 10px;
     margin-top: 40px;
-    font-family: 'Cormorant', serif;
+    font-family: 'Inter', sans-serif;
 }
 
 footer p {
     color: white;
-    font-size: 1em;
+    font-size: 0.95em;
 }
 
 /* Forms */
@@ -140,7 +139,7 @@ form {
     padding: 25px;
     border-radius: var(--radius);
     margin: 20px 0;
-    font-family: 'Cormorant', serif;
+    font-family: 'Inter', sans-serif;
 }
 
 input[type="text"],
@@ -156,7 +155,7 @@ select {
     font-size: 16px;
     transition: all var(--transition);
     background: white;
-    font-family: 'Cormorant', serif;
+    font-family: 'Inter', sans-serif;
 }
 
 input:focus,
@@ -167,26 +166,25 @@ select:focus {
     box-shadow: 0 0 0 3px rgba(237, 175, 184, 0.2);
 }
 
-/* Buttons - ОБНОВЛЕНЫ */
+/* Buttons */
 button, .button {
-    background: var(--cherry-blossom);
+    background: linear-gradient(135deg, var(--cherry-blossom) 0%, var(--ash-grey) 100%);
     color: white;
     border: none;
     padding: 12px 25px;
-    border-radius: 8px;
+    border-radius: 25px;
     cursor: pointer;
     font-size: 16px;
     font-weight: 500;
     transition: all var(--transition);
     text-decoration: none;
     display: inline-block;
-    font-family: 'Cormorant', serif;
+    font-family: 'Inter', sans-serif;
 }
 
 button:hover, .button:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(237, 175, 184, 0.4);
-    background: var(--ash-grey);
 }
 
 /* Auth page specific */
@@ -197,11 +195,11 @@ button:hover, .button:hover {
     padding: 25px;
     margin-bottom: 20px;
     border: 1px solid var(--dust-grey);
-    font-family: 'Cormorant', serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .tab.active {
-    background: var(--cherry-blossom);
+    background: linear-gradient(135deg, var(--cherry-blossom) 0%, var(--ash-grey) 100%);
     color: white;
 }
 
@@ -210,7 +208,7 @@ button:hover, .button:hover {
     border-left: 4px solid var(--cherry-blossom);
     padding: 12px 15px;
     border-radius: 8px;
-    font-family: 'Cormorant', serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .notice.success {
@@ -220,15 +218,22 @@ button:hover, .button:hover {
 
 /* Special text styles */
 .lead {
-    font-size: 1.2em;
+    font-size: 1.15em;
     font-weight: 400;
     line-height: 1.6;
     color: var(--text-light);
 }
 
 .small {
-    font-size: 0.95em;
+    font-size: 0.9em;
     color: var(--text-light);
+}
+
+/* Новый стиль для заголовков навигации */
+.nav-font {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 1em;
 }
 
 /* Герой-секция - ОБНОВЛЕНА */
@@ -250,24 +255,24 @@ button:hover, .button:hover {
     font-size: 1.8em;
     line-height: 1.3;
     margin-bottom: 20px;
-    font-family: 'Cormorant', serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 600;
     color: var(--iron-grey);
 }
 
 .hero-content .lead {
-    font-family: 'Cormorant', serif;
-    font-size: 1.15em;
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
     line-height: 1.7;
     color: var(--text-light);
 }
 
 .auth-section {
-    flex: 0 0 450px;
+    flex: 0 0 400px;
     margin: 0;
 }
 
-/* Стили для авторизации */
+/* Стили для авторизации остаются без изменений */
 .auth-tabs {
     display: flex;
     margin-bottom: 20px;
@@ -283,10 +288,9 @@ button:hover, .button:hover {
     background: transparent;
     border-radius: 8px;
     cursor: pointer;
-    font-family: 'Cormorant', serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 500;
     transition: all var(--transition);
-    font-size: 1.1em;
 }
 
 .auth-tab.active {
@@ -323,14 +327,14 @@ button:hover, .button:hover {
     margin-bottom: 8px;
     font-weight: 500;
     color: var(--text-dark);
-    font-size: 1em;
+    font-size: 0.9em;
 }
 
-/* Стили для красивых чекбоксов - ОБНОВЛЕНЫ */
+/* Стили для красивых чекбоксов */
 .checkbox-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    gap: 12px;
     margin-top: 10px;
 }
 
@@ -347,15 +351,14 @@ button:hover, .button:hover {
 .checkbox-label {
     display: flex;
     align-items: center;
-    padding: 12px 15px;
+    padding: 15px;
     background: white;
     border: 2px solid var(--dust-grey);
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 500;
-    min-height: 50px;
-    font-family: 'Cormorant', serif;
+    min-height: 60px;
 }
 
 .checkbox-label:hover {
@@ -372,21 +375,20 @@ button:hover, .button:hover {
 
 .checkbox-icon {
     font-size: 1.2em;
-    margin-right: 10px;
-    width: 20px;
+    margin-right: 12px;
+    width: 24px;
     text-align: center;
 }
 
 .checkbox-text {
     flex: 1;
     color: var(--text-dark);
-    font-size: 0.95em;
 }
 
 .checkbox-group {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    gap: 10px;
     margin-top: 8px;
 }
 
@@ -395,9 +397,8 @@ button:hover, .button:hover {
     align-items: center;
     gap: 8px;
     font-weight: normal;
-    font-size: 0.9em;
+    font-size: 0.85em;
     cursor: pointer;
-    font-family: 'Cormorant', serif;
 }
 
 .checkbox-group input[type="checkbox"] {
@@ -411,7 +412,7 @@ button:hover, .button:hover {
     border: 2px solid var(--dust-grey);
     border-radius: 8px;
     font-size: 16px;
-    font-family: 'Cormorant', serif;
+    font-family: 'Inter', sans-serif;
     transition: all 0.3s ease;
     background: white;
 }
@@ -442,11 +443,10 @@ button:hover, .button:hover {
 }
 
 .terms {
-    font-size: 0.9em;
+    font-size: 0.8em;
     color: var(--text-light);
     text-align: center;
     margin: 10px 0;
-    font-family: 'Cormorant', serif;
 }
 
 /* Сетка фич - ОБНОВЛЕНА */
@@ -463,26 +463,25 @@ button:hover, .button:hover {
     border-radius: var(--radius);
     border-left: 4px solid var(--cherry-blossom);
     text-align: center;
-    min-height: 120px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .feature-card h3 {
-    margin-top: 0;
+    margin-top: 15px;
     color: var(--iron-grey);
-    font-family: 'Cormorant', serif;
-    font-weight: 600;
-    font-size: 1.3em;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+.feature-emoji {
+    font-size: 2.5em;
+    display: block;
 }
 
 /* Стили для страницы Telegram */
 .telegram-section {
     text-align: center;
-    max-width: 500px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
@@ -496,22 +495,19 @@ button:hover, .button:hover {
 
 .telegram-link {
     display: inline-block;
-    background: var(--cherry-blossom);
+    background: linear-gradient(135deg, var(--cherry-blossom) 0%, var(--ash-grey) 100%);
     color: white;
     padding: 15px 30px;
-    border-radius: 8px;
+    border-radius: 25px;
     text-decoration: none;
     font-weight: 500;
     margin: 10px 0;
     transition: all var(--transition);
-    font-family: 'Cormorant', serif;
-    font-size: 1.1em;
 }
 
 .telegram-link:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(237, 175, 184, 0.4);
-    background: var(--ash-grey);
 }
 
 /* Responsive */
@@ -529,7 +525,6 @@ button:hover, .button:hover {
         padding: 6px 12px;
         display: inline-block;
         margin-bottom: 5px;
-        font-size: 1em;
     }
     
     main {
@@ -570,7 +565,7 @@ button:hover, .button:hover {
     
     .checkbox-grid {
         grid-template-columns: 1fr;
-        gap: 8px;
+        gap: 10px;
     }
 
     .checkbox-group {
@@ -578,16 +573,11 @@ button:hover, .button:hover {
     }
     
     .checkbox-label {
-        padding: 10px 12px;
-        min-height: 45px;
+        padding: 12px;
+        min-height: 55px;
     }
     
     .features-grid {
         grid-template-columns: 1fr;
-    }
-    
-    .feature-card {
-        padding: 20px;
-        min-height: 100px;
     }
 }
