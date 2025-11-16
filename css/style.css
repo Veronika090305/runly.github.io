@@ -1,34 +1,157 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.5;
+/* css/style.css — RUNLI theme update
+   Фон: песочный (#F5F5F5)
+   Текст: темно-серый/почти черный (#2C3E50)
+   Акцент/CTA: коралловый (#FF6B6B)
+   Хедер/футер/второстепенные: глубокий синий (#2C3E50)
+*/
+
+:root{
+  --bg: #F5F5F5;        /* песочный фон */
+  --text: #2C3E50;      /* темно-серый / глубокий синий (также используется для хедера/футера) */
+  --accent: #FF6B6B;    /* коралловый — primary buttons / highlights */
+  --muted: #6b7280;     /* вторичный текст */
+  --card: #FFFFFF;      /* карточки и контейнеры */
+  --radius: 10px;
+  --shadow: 0 8px 24px rgba(44,62,80,0.06);
+  --transition: 180ms ease;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-header {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  padding:0;
+  min-height:100%;
+  background-color:var(--bg);
+  color:var(--text);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
+/* Layout elements */
+header, footer{
+  background-color: var(--text); /* глубокий синий */
+  color: white;
+  padding: 18px 20px;
 }
 
-nav a:hover {
-    text-decoration: underline;
+header a, footer a {
+  color: white;
+  text-decoration: none;
 }
 
-main {
-    padding: 20px;
+nav{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
 }
 
-footer {
-    background-color: #f1f1f1;
-    text-align: center;
-    padding: 10px;
-    margin-top: 20px;
+/* Main container */
+main{
+  max-width:1100px;
+  margin: 28px auto;
+  padding: 0 18px;
 }
+
+/* Cards / panels */
+.card{
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+  margin-bottom: 18px;
+  color: var(--text);
+}
+
+/* Typography */
+h1,h2,h3{ color:var(--text); margin:0 0 12px 0; font-weight:600 }
+p{ margin:0 0 12px 0; color:var(--text) }
+.small{ font-size:0.92rem; color:var(--muted) }
+
+/* Links */
+a{ color:var(--accent); text-decoration:none; transition: color var(--transition) }
+a:hover{ color: darken(var(--accent), 6%); text-decoration:underline; }
+
+/* Buttons */
+button, .btn {
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:8px;
+  border:0;
+  cursor:pointer;
+  font-weight:600;
+  transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+}
+
+/* Primary CTA — коралловый */
+.btn-primary, button[type="submit"]{
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 6px 18px rgba(255,107,107,0.12);
+}
+.btn-primary:hover{ transform: translateY(-2px); opacity:0.98 }
+
+/* Secondary (header/footer style) — глубокий синий */
+.btn-secondary{
+  background: var(--text);
+  color: white;
+  box-shadow: none;
+}
+.btn-secondary:hover{ opacity:0.9 }
+
+/* Ghost / link style button */
+.btn-ghost{
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(44,62,80,0.06);
+}
+
+/* Form inputs */
+input[type="text"], input[type="email"], input[type="password"], select, textarea{
+  width:100%;
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid rgba(44,62,80,0.12);
+  background: #fff;
+  color: var(--text);
+  font-size:1rem;
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+input:focus, textarea:focus, select:focus{
+  outline:none;
+  border-color: var(--accent);
+  box-shadow: 0 6px 18px rgba(255,107,107,0.08);
+}
+
+/* Notices / messages */
+.notice{
+  padding:10px 12px;
+  border-radius:8px;
+  background:#fff7ed;
+  color:#7a4a00;
+}
+.notice.success{ background:#ecfdf5; color:#064e3b; }
+
+/* Footer small print */
+footer p{ margin:0; font-size:0.95rem }
+
+/* Helpers */
+.row{ display:flex; gap:12px; align-items:center; }
+.col{ flex:1; }
+
+/* Responsive tweaks */
+@media (max-width:900px){
+  nav{ justify-content:center; padding-top:8px; }
+  .wrap{ padding:12px; }
+  main{ padding: 0 14px; }
+}
+
+/* Utility color helpers (optional, useful in templates) */
+.text-accent { color: var(--accent); }
+.bg-card { background: var(--card); }
