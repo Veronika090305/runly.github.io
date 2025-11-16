@@ -282,6 +282,28 @@
                     document.getElementById('profile-goals').textContent = goalsText;
                 }
             }
+                if (user && !user.email_confirmed_at) {
+        // Показываем напоминание о подтверждении почты
+        const reminder = document.createElement('div');
+        reminder.className = 'notice';
+        reminder.innerHTML = `
+            💌 Почта ещё не подтверждена. 
+            <button id="resend-confirmation" class="link" style="margin-left: 10px;">Отправить письмо ещё раз</button>
+            <br><small>Без подтверждения нельзя восстановить пароль</small>
+        `;
+        document.querySelector('main').insertBefore(reminder, document.querySelector('main').firstChild);
+        
+        // Обработчик повторной отправки
+        document.getElementById('resend-confirmation').addEventListener('click', async () => {
+            const { error } = await supabase.auth.resend({
+                type: 'signup',
+                email: user.email
+            });
+            if (!error) {
+                reminder.innerHTML = 'Письмо отправлено! Проверьте почту';
+            }
+        });
+    }
         }
 
         // Навигация по разделам
