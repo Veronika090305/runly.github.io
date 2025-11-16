@@ -229,136 +229,6 @@ button:hover, .button:hover {
     color: var(--text-light);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    header {
-        padding: 20px 15px;
-    }
-    
-    header h1 {
-        font-size: 2em;
-    }
-    
-    nav a {
-        margin: 0 10px;
-        padding: 6px 12px;
-        display: inline-block;
-        margin-bottom: 5px;
-    }
-    
-    main {
-        padding: 20px 15px;
-    }
-    
-    section {
-        padding: 20px;
-    }
-    
-    h1 {
-        font-size: 1.8em;
-    }
-    
-    h2 {
-        font-size: 1.5em;
-    }
-}
-/* Добавляем в конец файла */
-/* Стили для красивых чекбоксов */
-.checkbox-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-top: 10px;
-}
-
-.checkbox-card {
-    position: relative;
-}
-
-.checkbox-card input[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.checkbox-label {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    background: white;
-    border: 2px solid var(--dust-grey);
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 500;
-    min-height: 60px;
-}
-
-.checkbox-label:hover {
-    border-color: var(--cherry-blossom);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(237, 175, 184, 0.15);
-}
-
-.checkbox-card input[type="checkbox"]:checked + .checkbox-label {
-    background: var(--powder-petal);
-    border-color: var(--cherry-blossom);
-    box-shadow: 0 4px 12px rgba(237, 175, 184, 0.2);
-}
-
-.checkbox-icon {
-    font-size: 1.2em;
-    margin-right: 12px;
-    width: 24px;
-    text-align: center;
-}
-
-.checkbox-text {
-    flex: 1;
-    color: var(--text-dark);
-}
-
-/* Адаптивность для чекбоксов */
-@media (max-width: 768px) {
-    .checkbox-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-    
-    .checkbox-label {
-        padding: 12px;
-        min-height: 55px;
-    }
-}
-
-/* Стили для поля возраста */
-.form-group input[type="number"] {
-    width: 100%;
-    padding: 12px 15px;
-    border: 2px solid var(--dust-grey);
-    border-radius: 8px;
-    font-size: 16px;
-    font-family: 'Inter', sans-serif;
-    transition: all 0.3s ease;
-    background: white;
-}
-
-.form-group input[type="number"]:focus {
-    outline: none;
-    border-color: var(--cherry-blossom);
-    box-shadow: 0 0 0 3px rgba(237, 175, 184, 0.2);
-}
-
-.terms .link {
-    color: var(--cherry-blossom);
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.terms .link:hover {
-    text-decoration: underline;
-}
-
 /* Герой-секция */
 .hero-section {
     text-align: center;
@@ -369,25 +239,25 @@ button:hover, .button:hover {
 
 /* Стили для герой-секции главной страницы */
 .hero-content {
-    max-width: 800px; /* Делаем шире */
-    margin: 0 auto; /* Центририруем */
-    text-align: left; /* Текст слева */
-    padding: 0 20px; /* Отступы по бокам */
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 0 20px;
 }
 
 .hero-content h2 {
-    font-size: 2.2em; /* Можно сделать чуть меньше если нужно */
+    font-size: 2.2em;
     line-height: 1.3;
     margin-bottom: 25px;
-    text-align: left; /* Заголовок тоже слева */
+    text-align: left;
 }
 
 .hero-content .lead {
-    font-size: 1.1em; /* Чуть меньше размер */
-    line-height: 1.7; /* Увеличиваем межстрочный интервал */
-    text-align: left; /* Текст слева */
-    max-width: 100%; /* Занимает всю доступную ширину */
-    margin: 0 auto; /* Убираем лишние отступы */
+    font-size: 1.1em;
+    line-height: 1.7;
+    text-align: left;
+    max-width: 100%;
+    margin: 0;
 }
 
 /* Секция авторизации */
@@ -453,6 +323,61 @@ button:hover, .button:hover {
     font-size: 0.9em;
 }
 
+/* Стили для красивых чекбоксов */
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.checkbox-card {
+    position: relative;
+}
+
+.checkbox-card input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: white;
+    border: 2px solid var(--dust-grey);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    min-height: 60px;
+}
+
+.checkbox-label:hover {
+    border-color: var(--cherry-blossom);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(237, 175, 184, 0.15);
+}
+
+.checkbox-card input[type="checkbox"]:checked + .checkbox-label {
+    background: var(--powder-petal);
+    border-color: var(--cherry-blossom);
+    box-shadow: 0 4px 12px rgba(237, 175, 184, 0.2);
+}
+
+.checkbox-icon {
+    font-size: 1.2em;
+    margin-right: 12px;
+    width: 24px;
+    text-align: center;
+}
+
+.checkbox-text {
+    flex: 1;
+    color: var(--text-dark);
+}
+
 .checkbox-group {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -471,6 +396,34 @@ button:hover, .button:hover {
 
 .checkbox-group input[type="checkbox"] {
     width: auto;
+}
+
+/* Стили для поля возраста */
+.form-group input[type="number"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--dust-grey);
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-group input[type="number"]:focus {
+    outline: none;
+    border-color: var(--cherry-blossom);
+    box-shadow: 0 0 0 3px rgba(237, 175, 184, 0.2);
+}
+
+.terms .link {
+    color: var(--cherry-blossom);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.terms .link:hover {
+    text-decoration: underline;
 }
 
 .auth-links {
@@ -509,8 +462,39 @@ button:hover, .button:hover {
     color: var(--iron-grey);
 }
 
-/* Адаптивность */
+/* Responsive */
 @media (max-width: 768px) {
+    header {
+        padding: 20px 15px;
+    }
+    
+    header h1 {
+        font-size: 2em;
+    }
+    
+    nav a {
+        margin: 0 10px;
+        padding: 6px 12px;
+        display: inline-block;
+        margin-bottom: 5px;
+    }
+    
+    main {
+        padding: 20px 15px;
+    }
+    
+    section {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 1.8em;
+    }
+    
+    h2 {
+        font-size: 1.5em;
+    }
+
     .hero-content h2 {
         font-size: 2em;
     }
@@ -520,8 +504,18 @@ button:hover, .button:hover {
         gap: 0;
     }
     
+    .checkbox-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
     .checkbox-group {
         grid-template-columns: 1fr;
+    }
+    
+    .checkbox-label {
+        padding: 12px;
+        min-height: 55px;
     }
     
     .features-grid {
