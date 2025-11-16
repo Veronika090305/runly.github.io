@@ -21,188 +21,187 @@
         <nav>
             <a href="index.html">Главная</a> |
             <a href="about.html">Наша философия</a> |
-            <a href="contact.html">Мы в Telegram</a>
+            <a href="telegram.html">Мы в Telegram</a>
         </nav>
     </header>
 
     <main>
-        <!-- Герой-секция -->
+        <!-- Герой-секция - ОБНОВЛЕНА -->
         <section class="hero-section">
             <div class="hero-content">
                 <h2>Личное пространство, где забота о себе становится простой и естественной</h2>
                 <p class="lead">Мы создали RUNLI для тех, кто устал от хаоса разрозненных заметок, забытых приложений и красивых, но неработающих планеров. Здесь всё собрано в единую и понятную систему. Это не просто набор функций, а продуманная среда, где каждая деталь служит одной цели - освободить ваше время, энергию и мысли, чтобы вы могли сосредоточиться на самом главном: на себе. Ваша гармония - наш главный проект!</p>
             </div>
-        </section>
 
-        <!-- Блок авторизации -->
-        <section class="auth-section">
-            <div class="auth-tabs">
-                <button class="auth-tab active" data-tab="login">Вход</button>
-                <button class="auth-tab" data-tab="signup">Регистрация</button>
-            </div>
+            <!-- Блок авторизации -->
+            <div class="auth-section">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Вход</button>
+                    <button class="auth-tab" data-tab="signup">Регистрация</button>
+                </div>
 
-            <!-- Форма входа -->
-            <div id="login-form" class="auth-form active">
-                <form id="signin-form">
-                    <input type="email" id="signin-email" placeholder="Email" required>
-                    <input type="password" id="signin-password" placeholder="Пароль" required>
-                    <div class="auth-links">
-                        <button type="button" id="forgot-password" class="link">Не помню пароль</button>
-                    </div>
-                    <button type="submit" class="auth-button">Войти</button>
-                </form>
-                <div id="signin-msg" class="notice" style="display:none"></div>
-            </div>
+                <!-- Форма входа -->
+                <div id="login-form" class="auth-form active">
+                    <form id="signin-form">
+                        <input type="email" id="signin-email" placeholder="Email" required>
+                        <input type="password" id="signin-password" placeholder="Пароль" required>
+                        <div class="auth-links">
+                            <button type="button" id="forgot-password" class="link">Не помню пароль</button>
+                        </div>
+                        <button type="submit" class="auth-button">Войти</button>
+                    </form>
+                    <div id="signin-msg" class="notice" style="display:none"></div>
+                </div>
 
-            <!-- Форма регистрации -->
-            <div id="signup-form" class="auth-form">
-                <form id="register-form">
-                    <input type="email" id="register-email" placeholder="Email" required>
-                    <input type="password" id="register-password" placeholder="Пароль (минимум 6 символов)" required>
-                    
-                    <div class="form-row">
+                <!-- Форма регистрации -->
+                <div id="signup-form" class="auth-form">
+                    <form id="register-form">
+                        <input type="email" id="register-email" placeholder="Email" required>
+                        <input type="password" id="register-password" placeholder="Пароль (минимум 6 символов)" required>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Возраст</label>
+                                <input type="number" id="register-age" placeholder="Сколько вам лет?" min="14" max="100" 
+                                       style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 2px solid var(--dust-grey);">
+                            </div>
+                        </div>
+
                         <div class="form-group">
-                            <label>Возраст</label>
-                            <input type="number" id="register-age" placeholder="Сколько вам лет?" min="14" max="100" 
-                                   style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 2px solid var(--dust-grey);">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Ваша основная деятельность (можно выбрать несколько):</label>
-                        <div class="checkbox-grid">
-                            <div class="checkbox-card">
-                                <input type="checkbox" id="activity-school" name="activity" value="school">
-                                <label for="activity-school" class="checkbox-label">
-                                    <span class="checkbox-icon">🏫</span>
-                                    <span class="checkbox-text">Школа</span>
-                                </label>
-                            </div>
-                            <div class="checkbox-card">
-                                <input type="checkbox" id="activity-student" name="activity" value="student">
-                                <label for="activity-student" class="checkbox-label">
-                                    <span class="checkbox-icon">🎓</span>
-                                    <span class="checkbox-text">Вуз или СПО</span>
-                                </label>
-                            </div>
-                            <div class="checkbox-card">
-                                <input type="checkbox" id="activity-employed" name="activity" value="employed">
-                                <label for="activity-employed" class="checkbox-label">
-                                    <span class="checkbox-icon">💼</span>
-                                    <span class="checkbox-text">Работа</span>
-                                </label>
-                            </div>
-                            <div class="checkbox-card">
-                                <input type="checkbox" id="activity-unemployed" name="activity" value="unemployed">
-                                <label for="activity-unemployed" class="checkbox-label">
-                                    <span class="checkbox-icon">🌱</span>
-                                    <span class="checkbox-text">Дом и семья</span>
-                                </label>
-                            </div>
-                            <div class="checkbox-card">
-                                <input type="checkbox" id="activity-entrepreneur" name="activity" value="entrepreneur">
-                                <label for="activity-entrepreneur" class="checkbox-label">
-                                    <span class="checkbox-icon">🚀</span>
-                                    <span class="checkbox-text">Бизнес</span>
-                                </label>
-                            </div>
-                            <div class="checkbox-card">
-                                <input type="checkbox" id="activity-other" name="activity" value="other">
-                                <label for="activity-other" class="checkbox-label">
-                                    <span class="checkbox-icon">✨</span>
-                                    <span class="checkbox-text">Другое</span>
-                                </label>
+                            <label>Ваша основная деятельность (можно выбрать несколько):</label>
+                            <div class="checkbox-grid">
+                                <div class="checkbox-card">
+                                    <input type="checkbox" id="activity-school" name="activity" value="school">
+                                    <label for="activity-school" class="checkbox-label">
+                                        <span class="checkbox-icon">🏫</span>
+                                        <span class="checkbox-text">Школа</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox-card">
+                                    <input type="checkbox" id="activity-student" name="activity" value="student">
+                                    <label for="activity-student" class="checkbox-label">
+                                        <span class="checkbox-icon">🎓</span>
+                                        <span class="checkbox-text">Вуз или СПО</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox-card">
+                                    <input type="checkbox" id="activity-employed" name="activity" value="employed">
+                                    <label for="activity-employed" class="checkbox-label">
+                                        <span class="checkbox-icon">💼</span>
+                                        <span class="checkbox-text">Работа</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox-card">
+                                    <input type="checkbox" id="activity-unemployed" name="activity" value="unemployed">
+                                    <label for="activity-unemployed" class="checkbox-label">
+                                        <span class="checkbox-icon">🌱</span>
+                                        <span class="checkbox-text">Дом и семья</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox-card">
+                                    <input type="checkbox" id="activity-entrepreneur" name="activity" value="entrepreneur">
+                                    <label for="activity-entrepreneur" class="checkbox-label">
+                                        <span class="checkbox-icon">🚀</span>
+                                        <span class="checkbox-text">Бизнес</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox-card">
+                                    <input type="checkbox" id="activity-other" name="activity" value="other">
+                                    <label for="activity-other" class="checkbox-label">
+                                        <span class="checkbox-icon">✨</span>
+                                        <span class="checkbox-text">Другое</span>
+                                    </label>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label>Цели на RUNLI (можно выбрать несколько)</label>
-                        <div class="checkbox-grid">
-                            <div class="checkbox-card">
-                                <input type="checkbox" id="goal-finance" name="goals" value="finance">
-                                <label for="goal-finance" class="checkbox-label">
-                                    <span class="checkbox-icon">💰</span>
-                                    <span class="checkbox-text">Финансы</span>
-                                </label>
-                            </div>
-                            <div class="checkbox-card">
-                                <input type="checkbox" id="goal-career" name="goals" value="career">
-                                <label for="goal-career" class="checkbox-label">
-                                    <span class="checkbox-icon">🎯</span>
-                                    <span class="checkbox-text">Карьера</span>
-                                </label>
-                            </div>
-                            <div class="checkbox-card">
-                                <input type="checkbox" id="goal-study" name="goals" value="study">
-                                <label for="goal-study" class="checkbox-label">
-                                    <span class="checkbox-icon">📚</span>
-                                    <span class="checkbox-text">Образование</span>
-                                </label>
-                            </div>
-                            <div class="checkbox-card">
-                                <input type="checkbox" id="goal-health" name="goals" value="health">
-                                <label for="goal-health" class="checkbox-label">
-                                    <span class="checkbox-icon">🌿</span>
-                                    <span class="checkbox-text">Здоровье</span>
-                                </label>
-                            </div>
-                            <div class="checkbox-card">
-                                <input type="checkbox" id="goal-organization" name="goals" value="organization">
-                                <label for="goal-organization" class="checkbox-label">
-                                    <span class="checkbox-icon">🏠</span>
-                                    <span class="checkbox-text">Быт</span>
-                                </label>
-                            </div>
-                            <div class="checkbox-card">
-                                <input type="checkbox" id="goal-relationships" name="goals" value="relationships">
-                                <label for="goal-relationships" class="checkbox-label">
-                                    <span class="checkbox-icon">💝</span>
-                                    <span class="checkbox-text">Отношения</span>
-                                </label>
+                        <div class="form-group">
+                            <label>Цели на RUNLI (можно выбрать несколько)</label>
+                            <div class="checkbox-grid">
+                                <div class="checkbox-card">
+                                    <input type="checkbox" id="goal-finance" name="goals" value="finance">
+                                    <label for="goal-finance" class="checkbox-label">
+                                        <span class="checkbox-icon">💰</span>
+                                        <span class="checkbox-text">Финансы</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox-card">
+                                    <input type="checkbox" id="goal-career" name="goals" value="career">
+                                    <label for="goal-career" class="checkbox-label">
+                                        <span class="checkbox-icon">🎯</span>
+                                        <span class="checkbox-text">Карьера</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox-card">
+                                    <input type="checkbox" id="goal-study" name="goals" value="study">
+                                    <label for="goal-study" class="checkbox-label">
+                                        <span class="checkbox-icon">📚</span>
+                                        <span class="checkbox-text">Образование</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox-card">
+                                    <input type="checkbox" id="goal-health" name="goals" value="health">
+                                    <label for="goal-health" class="checkbox-label">
+                                        <span class="checkbox-icon">🌿</span>
+                                        <span class="checkbox-text">Здоровье</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox-card">
+                                    <input type="checkbox" id="goal-organization" name="goals" value="organization">
+                                    <label for="goal-organization" class="checkbox-label">
+                                        <span class="checkbox-icon">🏠</span>
+                                        <span class="checkbox-text">Быт</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox-card">
+                                    <input type="checkbox" id="goal-relationships" name="goals" value="relationships">
+                                    <label for="goal-relationships" class="checkbox-label">
+                                        <span class="checkbox-icon">💝</span>
+                                        <span class="checkbox-text">Отношения</span>
+                                    </label>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="terms">
-                        Нажимая «Зарегистрироваться», вы соглашаетесь с <a href="/terms.html" class="link">правилами сервиса</a>.
-                    </div>
-                    <button type="submit" class="auth-button">Зарегистрироваться</button>
-                    
-                    <!-- Блок повторной отправки письма -->
-                    <div id="resend-email" style="display: none; margin-top: 15px; text-align: center;">
-                        <p class="small muted">Не пришло письмо?</p>
-                        <button type="button" id="resend-btn" class="link" style="font-size: 14px;">Отправить ещё раз</button>
-                    </div>
-                    
-                </form>
-                <div id="signup-msg" class="notice" style="display:none"></div>
+                        <div class="terms">
+                            Нажимая «Зарегистрироваться», вы соглашаетесь с <a href="/terms.html" class="link">правилами сервиса</a>.
+                        </div>
+                        <button type="submit" class="auth-button">Зарегистрироваться</button>
+                        
+                        <!-- Блок повторной отправки письма -->
+                        <div id="resend-email" style="display: none; margin-top: 15px; text-align: center;">
+                            <p class="small muted">Не пришло письмо?</p>
+                            <button type="button" id="resend-btn" class="link" style="font-size: 14px;">Отправить ещё раз</button>
+                        </div>
+                        
+                    </form>
+                    <div id="signup-msg" class="notice" style="display:none"></div>
+                </div>
             </div>
         </section>
 
-<!-- Информационные секции -->
-<section>
-    <h2>Сферы жизни в RUNLI:</h2>
-    <div class="features-grid">
-        <div class="feature-card">
-            <span class="feature-emoji">🌿</span>
-            <h3>Здоровье</h3>
-        </div>
-        <div class="feature-card">
-            <span class="feature-emoji">💰</span>
-            <h3>Финансы</h3>
-        </div>
-        <div class="feature-card">
-            <span class="feature-emoji">📚</span>
-            <h3>Саморазвитие</h3>
-        </div>
-        <div class="feature-card">
-            <span class="feature-emoji">🏠</span>
-            <h3>Уют</h3>
-        </div>
-    </div>
-</section>
-        
+        <!-- Информационные секции -->
+        <section>
+            <h2 class="nav-font">Сферы жизни в RUNLI:</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-emoji">🌿</span>
+                    <h3>Здоровье</h3>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-emoji">💰</span>
+                    <h3>Финансы</h3>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-emoji">📚</span>
+                    <h3>Саморазвитие</h3>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-emoji">🏠</span>
+                    <h3>Уют</h3>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
