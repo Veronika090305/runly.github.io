@@ -44,7 +44,7 @@ header {
 /* Заголовок RUNLI - шрифт Lora и увеличенный размер */
 header h1 {
     margin: 0 0 15px 0;
-    font-size: 3em; /* Увеличили с 2.5em до 3em */
+    font-size: 4em; /* Увеличили с 2.5em до 4em */
     font-weight: 400; /* Сделали немного жирнее */
     letter-spacing: -0.5px;
     font-family: 'Lora', serif; /* Явно указываем Lora */
