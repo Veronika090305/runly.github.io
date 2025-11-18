@@ -121,10 +121,10 @@ p {
     color: var(--text-dark);
 }
 
-/* Footer - ОБНОВЛЕН: белый фон и розовый текст */
+/* Footer - ОБНОВЛЕН: белый фон и серо-зелёный текст */
 footer {
     background-color: white; /* Белый фон */
-    color: var(--new-pink); /* Розовый текст */
+    color: #8E9C92; /* серо-зелёный  текст */
     text-align: center;
     padding: 25px 10px;
     margin-top: 40px;
