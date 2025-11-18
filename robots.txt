@@ -6,8 +6,8 @@ Disallow: /dashboard/
 Disallow: /reset-password.html
 Disallow: /cgi-bin/
 
-# Sitemap
-Sitemap: https://runli.ru/sitemap.xml
+# Sitemap - тоже относительный путь
+Sitemap: /sitemap.xml
 
 # Яндекс-специфичные настройки
 User-agent: Yandex
