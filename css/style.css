@@ -509,7 +509,7 @@ button:hover, .button:hover {
 }
 
 .feature-card {
-    background: var(--new-beige); /* Бежевый фон вместо бежевого */
+    background: white; /* Белый фон вместо бежевого */
     padding: 20px;
     border-radius: var(--radius);
     border-left: 4px solid var(--cherry-blossom);
@@ -518,15 +518,6 @@ button:hover, .button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.feature-card h3 {
-    margin: 0;
-    color: var(--new-pink); /* Розовый текст */
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    font-size: 1.1em;
-    text-transform: lowercase;
 }
 
 /* Стили для страницы Telegram */
