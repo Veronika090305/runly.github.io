@@ -132,7 +132,7 @@ footer {
 }
 
 footer p {
-    color: var(--new-pink); /* Розовый текст */
+    color: #8E9C92; /* Цвет текста */
     font-size: 0.95em;
 }
 
