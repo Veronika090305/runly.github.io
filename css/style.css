@@ -555,6 +555,117 @@ button:hover, .button:hover {
     color: var(--text-dark);
 }
 
+/* Стили для страниц с hero-оформлением */
+.hero-page-section {
+    background: var(--new-green);
+    color: white;
+    padding: 40px;
+    margin: 0 0 40px 0;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    width: 100%;
+}
+
+.hero-page-content {
+    text-align: left;
+    color: white;
+    max-width: 100%;
+}
+
+.hero-page-content h2 {
+    font-size: 1.8em;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    color: white;
+    border-bottom: 2px solid var(--cherry-blossom);
+    padding-bottom: 10px;
+}
+
+.hero-page-content .inter-white {
+    font-size: 1em;
+    line-height: 1.7;
+    color: white;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+/* Стили для страницы Telegram */
+.telegram-hero-section {
+    background: var(--new-green);
+    color: white;
+    padding: 40px;
+    margin: 0 0 40px 0;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    width: 100%;
+}
+
+.telegram-hero-content {
+    text-align: left;
+    color: white;
+}
+
+.telegram-hero-content h2 {
+    font-size: 1.8em;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    color: white;
+    border-bottom: 2px solid var(--cherry-blossom);
+    padding-bottom: 10px;
+}
+
+.telegram-card-hero {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: var(--radius);
+    margin: 20px 0;
+    border-left: 4px solid var(--cherry-blossom);
+    backdrop-filter: blur(10px);
+}
+
+.telegram-card-hero h3 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+.telegram-card-hero .inter-white {
+    margin-bottom: 15px;
+}
+
+.benefits-list-hero {
+    text-align: left;
+    margin: 15px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.benefits-list-hero li {
+    margin-bottom: 10px;
+    color: white;
+    position: relative;
+    padding-left: 0;
+}
+
+.contact-info-hero {
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius);
+}
+
+/* Адаптивность для hero-страниц */
+@media (max-width: 768px) {
+    .hero-page-section,
+    .telegram-hero-section {
+        padding: 30px 20px;
+    }
+    
+    .telegram-card-hero {
+        padding: 20px;
+    }
+}
+
 /* Адаптивность для Telegram страницы */
 @media (max-width: 768px) {
     .telegram-section {
