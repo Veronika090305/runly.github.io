@@ -96,12 +96,30 @@
                         <input type="email" id="register-email" placeholder="Email" required>
                         <input type="password" id="register-password" placeholder="Пароль (минимум 6 символов)" required>
                         
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Возраст</label>
-                                <input type="number" id="register-age" placeholder="Сколько вам лет?" min="0" max="150">
-                            </div>
-                        </div>
+<div class="form-row">
+    <div class="form-group">
+        <label>Ваше имя</label>
+        <input type="text" id="register-name" placeholder="Как к вам обращаться?" required>
+    </div>
+    <div class="form-group">
+        <label>Возраст</label>
+        <input type="number" id="register-age" placeholder="Сколько вам лет?" min="0" max="150">
+    </div>
+</div>
+
+<!-- Добавьте поле для аватара -->
+<div class="form-group">
+    <label>Аватар (можно добавить позже)</label>
+    <input type="file" id="register-avatar" accept="image/*" style="display: none;">
+    <div class="avatar-upload">
+        <div class="avatar-preview" id="avatar-preview">
+            <span>📷</span>
+        </div>
+        <button type="button" class="button" onclick="document.getElementById('register-avatar').click()" style="margin-top: 10px;">
+            Выбрать фото
+        </button>
+    </div>
+</div>
 
                         <div class="form-group">
                             <label>Ваша основная деятельность (можно выбрать несколько):</label>
