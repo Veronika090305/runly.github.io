@@ -451,20 +451,19 @@ button:hover, .button:hover {
     margin: 0;
 }
 
-/* Оптимизированные стили шрифтов */
 .raleway-heading {
     font-family: 'Raleway', sans-serif;
     font-display: swap;
     font-size: 1.8em;
-    font-weight: 400;
+    font-weight: 600; /* Изменено с 400 на 600 для жирности */
 }
 
 .inter-white {
     font-family: 'Inter', sans-serif;
     font-display: swap;
     color: white;
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 1em;
+    font-weight: 500; /* Убедитесь, что это 500 */
 }
 
 .inter-text {
@@ -473,6 +472,7 @@ button:hover, .button:hover {
     font-size: 1.05em;
     line-height: 1.7;
     color: var(--text-dark);
+    font-weight: 500; /* Добавлено для жирности */
 }
 
 .white-link {
