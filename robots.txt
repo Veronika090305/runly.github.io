@@ -1,3 +1,8 @@
 User-agent: *
 Allow: /
 Sitemap: https://runli.ru/sitemap.xml
+
+# Дополнительные директивы
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /reset-password.html
