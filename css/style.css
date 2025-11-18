@@ -595,20 +595,22 @@ button:hover, .button:hover {
         font-size: 1.5em;
     }
 
-    .hero-section {
-        flex-direction: column;
-        gap: 30px;
-        padding: 30px 20px;
-    }
-    
-    .hero-content h2 {
-        font-size: 1.6em;
-    }
-    
-    .auth-section {
-        flex: 1;
-        width: 100%;
-    }
+.hero-section {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    padding: 40px;
+}
+
+.hero-content {
+    flex: 1;
+    text-align: left;
+}
+
+.auth-section {
+    flex: 0 0 400px;
+    margin: 0;
+}
     
     .form-row {
         flex-direction: column;
