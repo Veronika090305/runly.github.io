@@ -8,17 +8,21 @@
     --text-dark: #2a3439;
     --text-light: #5c6b73;
     --new-green: #8B9D91;
-    --new-beige: #e2dcd3; /* Новый бежевый цвет */
-    --new-pink: #e4b2b8; /* Новый розовый цвет */
+    --new-beige: #e2dcd3;
+    --new-pink: #e4b2b8;
     --radius: 12px;
     --shadow: 0 8px 24px rgba(74, 87, 89, 0.1);
     --transition: 0.3s ease;
 }
 
-* { box-sizing: border-box; }
+* { 
+    box-sizing: border-box; 
+}
 
+/* Базовые стили с системными шрифтами */
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-display: swap; /* Предотвращает FOIT */
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -28,7 +32,7 @@ body {
     font-weight: 400;
 }
 
-/* Header */
+/* Шапка сайта */
 header {
     background: linear-gradient(135deg, var(--ash-grey) 0%, var(--iron-grey) 100%);
     color: white;
@@ -45,6 +49,7 @@ header h1 {
     font-family: 'Lora', 'Inter', serif;
 }
 
+/* Навигация */
 nav {
     margin-top: 15px;
 }
@@ -62,11 +67,10 @@ nav a {
 
 nav a:hover {
     background-color: rgba(237, 175, 184, 0.2);
-    text-decoration: none;
     transform: translateY(-2px);
 }
 
-/* Main Content */
+/* Основное содержимое */
 main {
     padding: 40px 20px;
     max-width: 1200px;
@@ -88,17 +92,15 @@ section:hover {
     box-shadow: 0 12px 30px rgba(176, 196, 177, 0.25);
 }
 
-/* Typography */
+/* Типографика */
 h1, h2, h3 {
     color: var(--iron-grey);
     font-weight: 500;
-    font-family: 'Lora', 'Inter', serif;
     line-height: 1.3;
 }
 
 h1 {
     font-size: 2.2em;
-    font-weight: 500;
 }
 
 h2 {
@@ -106,25 +108,22 @@ h2 {
     border-bottom: 2px solid var(--cherry-blossom);
     padding-bottom: 10px;
     margin-top: 0;
-    font-weight: 500;
 }
 
 h3 {
     font-size: 1.4em;
-    font-weight: 500;
 }
 
 p {
-    font-family: 'Inter', sans-serif;
     font-size: 1.05em;
     line-height: 1.7;
     color: var(--text-dark);
 }
 
-/* Footer - ОБНОВЛЕН: белый фон и серо-зелёный текст */
+/* Подвал сайта */
 footer {
-    background-color: white; /* Белый фон */
-    color: #8E9C92; /* серо-зелёный  текст */
+    background-color: white;
+    color: #8E9C92;
     text-align: center;
     padding: 25px 10px;
     margin-top: 40px;
@@ -132,23 +131,23 @@ footer {
 }
 
 footer p {
-    color: #8E9C92; /* Цвет текста */
+    color: #8E9C92;
     font-size: 0.95em;
 }
 
-/* Forms - ОБНОВЛЕН: бежевый фон вместо белого */
+/* Формы */
 form {
-    background: var(--new-beige); /* Новый бежевый цвет */
+    background: var(--new-beige);
     padding: 25px;
     border-radius: var(--radius);
     margin: 20px 0;
-    font-family: 'Inter', sans-serif;
     border: 1px solid var(--dust-grey);
 }
 
 input[type="text"],
 input[type="email"],
 input[type="password"],
+input[type="number"],
 textarea,
 select {
     width: 100%;
@@ -170,7 +169,7 @@ select:focus {
     box-shadow: 0 0 0 3px rgba(237, 175, 184, 0.2);
 }
 
-/* Buttons */
+/* Кнопки */
 button, .button {
     background: var(--cherry-blossom);
     color: white;
@@ -192,22 +191,7 @@ button:hover, .button:hover {
     background: #e89ca8;
 }
 
-/* Auth page specific */
-.card {
-    background: white;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: 25px;
-    margin-bottom: 20px;
-    border: 1px solid var(--dust-grey);
-    font-family: 'Inter', sans-serif;
-}
-
-.tab.active {
-    background: var(--cherry-blossom);
-    color: white;
-}
-
+/* Уведомления */
 .notice {
     background: var(--powder-petal);
     border-left: 4px solid var(--cherry-blossom);
@@ -221,12 +205,11 @@ button:hover, .button:hover {
     border-left-color: var(--ash-grey);
 }
 
-/* Special text styles */
+/* Текстовые стили */
 .lead {
     font-size: 1.15em;
     font-weight: 400;
     line-height: 1.6;
-    color: var(--text-light);
 }
 
 .small {
@@ -234,14 +217,7 @@ button:hover, .button:hover {
     color: var(--text-light);
 }
 
-/* Новый стиль для заголовков навигации */
-.nav-font {
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    font-size: 1em;
-}
-
-/* Герой-секция - ОБНОВЛЕНА: шрифт Playfair Display */
+/* Главная секция с текстом и формой */
 .hero-section {
     display: flex;
     gap: 40px;
@@ -264,14 +240,11 @@ button:hover, .button:hover {
     font-size: 1.8em;
     line-height: 1.3;
     margin-bottom: 20px;
-    font-family: 'Playfair Display', serif; /* Новый шрифт */
-    font-weight: 600;
     color: white;
     border-bottom: 2px solid var(--cherry-blossom);
 }
 
 .hero-content .lead {
-    font-family: 'Playfair Display', serif; /* Новый шрифт */
     font-size: 1em;
     line-height: 1.7;
     color: white;
@@ -283,7 +256,7 @@ button:hover, .button:hover {
     margin: 0;
 }
 
-/* Стили для авторизации */
+/* Вкладки авторизации */
 .auth-tabs {
     display: flex;
     margin-bottom: 20px;
@@ -300,7 +273,6 @@ button:hover, .button:hover {
     background: transparent;
     border-radius: 8px;
     cursor: pointer;
-    font-family: 'Inter', sans-serif;
     font-weight: 500;
     transition: all var(--transition);
     color: var(--cherry-blossom);
@@ -324,7 +296,7 @@ button:hover, .button:hover {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    background: var(--new-beige); /* Бежевый фон */
+    background: var(--new-beige);
 }
 
 .form-row {
@@ -344,7 +316,7 @@ button:hover, .button:hover {
     font-size: 0.9em;
 }
 
-/* Стили для ссылки "Не помню пароль" */
+/* Ссылка восстановления пароля */
 .auth-links {
     display: flex;
     justify-content: flex-end;
@@ -359,7 +331,6 @@ button:hover, .button:hover {
     font-size: 14px;
     text-decoration: none;
     padding: 0;
-    font-family: 'Inter', sans-serif;
     font-weight: 500;
     transition: color var(--transition);
 }
@@ -367,8 +338,6 @@ button:hover, .button:hover {
 #forgot-password:hover {
     color: #e89ca8;
     text-decoration: underline;
-    transform: none;
-    box-shadow: none;
 }
 
 .auth-button {
@@ -382,7 +351,7 @@ button:hover, .button:hover {
     margin: 10px 0;
 }
 
-/* Стили для красивых чекбоксов */
+/* Чекбоксы */
 .checkbox-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -437,55 +406,7 @@ button:hover, .button:hover {
     color: var(--text-dark);
 }
 
-.checkbox-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 8px;
-}
-
-.checkbox-group label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: normal;
-    font-size: 0.85em;
-    cursor: pointer;
-}
-
-.checkbox-group input[type="checkbox"] {
-    width: auto;
-}
-
-/* Стили для поля возраста */
-.form-group input[type="number"] {
-    width: 100%;
-    padding: 12px 15px;
-    border: 2px solid var(--dust-grey);
-    border-radius: 8px;
-    font-size: 16px;
-    font-family: 'Inter', sans-serif;
-    transition: all 0.3s ease;
-    background: white;
-}
-
-.form-group input[type="number"]:focus {
-    outline: none;
-    border-color: var(--cherry-blossom);
-    box-shadow: 0 0 0 3px rgba(237, 175, 184, 0.2);
-}
-
-.terms .link {
-    color: var(--cherry-blossom);
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.terms .link:hover {
-    text-decoration: underline;
-}
-
-/* Сетка фич - ОБНОВЛЕНА: бежевый фон и розовый текст */
+/* Секция сфер жизни */
 .features-section {
     background: var(--new-green);
     color: white;
@@ -493,12 +414,6 @@ button:hover, .button:hover {
     margin: 25px 0;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-}
-
-.features-section h2 {
-    color: white;
-    border-bottom: 2px solid var(--cherry-blossom);
-    font-family: 'Playfair Display', serif; /* Новый шрифт */
 }
 
 .features-grid {
@@ -509,7 +424,7 @@ button:hover, .button:hover {
 }
 
 .feature-card {
-    background: white; /* Белый фон вместо бежевого */
+    background: white;
     padding: 20px;
     border-radius: var(--radius);
     border-left: 4px solid var(--cherry-blossom);
@@ -520,40 +435,49 @@ button:hover, .button:hover {
     justify-content: center;
 }
 
-/* Стили для страницы Telegram */
-.telegram-section {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
+/* Оптимизированные стили шрифтов */
+.raleway-heading {
+    font-family: 'Raleway', sans-serif;
+    font-display: swap;
+    font-size: 1.8em;
+    font-weight: 600;
 }
 
-.telegram-card {
-    background: var(--powder-petal);
-    padding: 30px;
-    border-radius: var(--radius);
-    margin: 20px 0;
-    border-left: 4px solid var(--cherry-blossom);
-}
-
-.telegram-link {
-    display: inline-block;
-    background: var(--cherry-blossom);
+.inter-white {
+    font-family: 'Inter', sans-serif;
+    font-display: swap;
     color: white;
-    padding: 15px 30px;
-    border-radius: 8px;
-    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.inter-text {
+    font-family: 'Inter', sans-serif;
+    font-display: swap;
+    font-size: 1.05em;
+    line-height: 1.7;
+    color: var(--text-dark);
+}
+
+.white-link {
+    color: white !important;
+}
+
+.white-link:hover {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Стили для карточек сфер жизни */
+.feature-card h3 {
+    font-family: 'Inter', sans-serif;
+    color: #8E9C92;
+    font-size: 16px;
     font-weight: 500;
-    margin: 10px 0;
-    transition: all var(--transition);
+    text-transform: lowercase;
+    margin: 0;
 }
 
-.telegram-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(237, 175, 184, 0.4);
-    background: #e89ca8;
-}
-
-/* Responsive */
+/* Адаптивность */
 @media (max-width: 768px) {
     header {
         padding: 20px 15px;
@@ -586,22 +510,20 @@ button:hover, .button:hover {
         font-size: 1.5em;
     }
 
-.hero-section {
-    display: flex;
-    gap: 40px;
-    align-items: flex-start;
-    padding: 40px;
-}
-
-.hero-content {
-    flex: 1;
-    text-align: left;
-}
-
-.auth-section {
-    flex: 0 0 400px;
-    margin: 0;
-}
+    .hero-section {
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px 20px;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.6em;
+    }
+    
+    .auth-section {
+        flex: 1;
+        width: 100%;
+    }
     
     .form-row {
         flex-direction: column;
@@ -611,10 +533,6 @@ button:hover, .button:hover {
     .checkbox-grid {
         grid-template-columns: 1fr;
         gap: 10px;
-    }
-
-    .checkbox-group {
-        grid-template-columns: 1fr;
     }
     
     .checkbox-label {
@@ -630,69 +548,4 @@ button:hover, .button:hover {
         min-height: 70px;
         padding: 15px;
     }
-}
-
-/* Новые стили для решения задач */
-
-/* Стили для Raleway заголовков с одинаковым размером */
-.raleway-heading {
-    font-family: 'Raleway', sans-serif;
-    font-size: 1.8em;
-    font-weight: 600;
-}
-
-/* Стили для белого текста Inter */
-.inter-white {
-    font-family: 'Inter', sans-serif;
-    color: white;
-    font-size: 16px;
-    font-weight: 400;
-}
-
-/* Стили для обычного текста Inter (без изменения цвета) */
-.inter-text {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.05em;
-    line-height: 1.7;
-    color: var(--text-dark);
-}
-
-/* Стили для белой ссылки "Не помню пароль" */
-.white-link {
-    color: white !important;
-}
-
-.white-link:hover {
-    color: rgba(255, 255, 255, 0.8) !important;
-}
-
-/* Обновление существующих стилей для соответствия задачам */
-
-/* Герой-секция - обновленные стили */
-.hero-content h2 {
-    font-family: 'Raleway', sans-serif; /* Применяем Raleway */
-    font-size: 1.8em; /* Одинаковый размер с другими Raleway заголовками */
-}
-
-/* Фичи-секция - обновленные стили */
-.features-section h2 {
-    font-family: 'Raleway', sans-serif; /* Применяем Raleway */
-    font-size: 1.8em; /* Одинаковый размер */
-}
-
-/* Стили для карточек сфер жизни */
-.feature-card h3 {
-    font-family: 'Inter', sans-serif;
-    color: #8E9C92; /* Новый цвет */
-    font-size: 16px;
-    font-weight: 500;
-    text-transform: lowercase;
-}
-
-/* Стили для основного текста в герое */
-.hero-content .lead {
-    font-family: 'Inter', sans-serif; /* Применяем Inter */
-    color: white; /* Белый цвет */
-    font-size: 16px; /* Одинаковый размер */
-    line-height: 1.7;
 }
