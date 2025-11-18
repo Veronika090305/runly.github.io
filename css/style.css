@@ -406,7 +406,7 @@ button:hover, .button:hover {
     color: var(--text-dark);
 }
 
-/* Секция сфер жизни */
+/* Секция сфер жизни - обновленные стили */
 .features-section {
     background: var(--new-green);
     color: white;
@@ -414,6 +414,12 @@ button:hover, .button:hover {
     margin: 25px 0;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
+}
+
+/* Заголовок секции - белый цвет */
+.features-section h2.raleway-heading {
+    color: white;
+    border-bottom: 2px solid white; /* Белая линия вместо розовой */
 }
 
 .features-grid {
@@ -433,6 +439,16 @@ button:hover, .button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* Текст в карточках - с заглавных букв и серо-зеленый */
+.feature-card h3 {
+    font-family: 'Inter', sans-serif;
+    color: #8E9C92;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: none; /* Убираем преобразование в lowercase */
+    margin: 0;
 }
 
 /* Оптимизированные стили шрифтов */
@@ -473,8 +489,9 @@ button:hover, .button:hover {
     color: #8E9C92;
     font-size: 16px;
     font-weight: 500;
-    text-transform: lowercase;
+    text-transform: none;
     margin: 0;
+    text-align: center;
 }
 
 /* Адаптивность */
