@@ -7,7 +7,9 @@
     --iron-grey: #4a5759;
     --text-dark: #2a3439;
     --text-light: #5c6b73;
-    --new-green: #8B9D91; /* Новый зелёный цвет */
+    --new-green: #8B9D91;
+    --new-beige: #e2dcd3; /* Новый бежевый цвет */
+    --new-pink: #e4b2b8; /* Новый розовый цвет */
     --radius: 12px;
     --shadow: 0 8px 24px rgba(74, 87, 89, 0.1);
     --transition: 0.3s ease;
@@ -119,10 +121,10 @@ p {
     color: var(--text-dark);
 }
 
-/* Footer */
+/* Footer - ОБНОВЛЕН: белый фон и розовый текст */
 footer {
-    background-color: var(--iron-grey);
-    color: white;
+    background-color: white; /* Белый фон */
+    color: var(--new-pink); /* Розовый текст */
     text-align: center;
     padding: 25px 10px;
     margin-top: 40px;
@@ -130,13 +132,13 @@ footer {
 }
 
 footer p {
-    color: white;
+    color: var(--new-pink); /* Розовый текст */
     font-size: 0.95em;
 }
 
-/* Forms */
+/* Forms - ОБНОВЛЕН: бежевый фон вместо белого */
 form {
-    background: white;
+    background: var(--new-beige); /* Новый бежевый цвет */
     padding: 25px;
     border-radius: var(--radius);
     margin: 20px 0;
@@ -239,13 +241,13 @@ button:hover, .button:hover {
     font-size: 1em;
 }
 
-/* Герой-секция - ОБНОВЛЕНА: новый зелёный фон #8B9D91 */
+/* Герой-секция - ОБНОВЛЕНА: шрифт Playfair Display */
 .hero-section {
     display: flex;
     gap: 40px;
     align-items: flex-start;
     padding: 40px;
-    background: var(--new-green); /* Новый зелёный цвет */
+    background: var(--new-green);
     margin: 0 0 40px 0;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
@@ -262,14 +264,14 @@ button:hover, .button:hover {
     font-size: 1.8em;
     line-height: 1.3;
     margin-bottom: 20px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif; /* Оставляем Inter */
     font-weight: 600;
     color: white;
     border-bottom: 2px solid var(--cherry-blossom);
 }
 
 .hero-content .lead {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif; /* Оставляем Inter */
     font-size: 1em;
     line-height: 1.7;
     color: white;
@@ -281,7 +283,7 @@ button:hover, .button:hover {
     margin: 0;
 }
 
-/* Стили для авторизации - ОБНОВЛЕНЫ: розовый текст для неактивных вкладок */
+/* Стили для авторизации */
 .auth-tabs {
     display: flex;
     margin-bottom: 20px;
@@ -301,13 +303,13 @@ button:hover, .button:hover {
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     transition: all var(--transition);
-    color: var(--cherry-blossom); /* Розовый текст для неактивных вкладок */
+    color: var(--cherry-blossom);
 }
 
 .auth-tab.active {
     background: var(--cherry-blossom);
     box-shadow: var(--shadow);
-    color: white; /* Белый текст для активной вкладки */
+    color: white;
 }
 
 .auth-form {
@@ -322,7 +324,7 @@ button:hover, .button:hover {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    background: white;
+    background: var(--new-beige); /* Бежевый фон */
 }
 
 .form-row {
@@ -342,7 +344,7 @@ button:hover, .button:hover {
     font-size: 0.9em;
 }
 
-/* Стили для ссылки "Не помню пароль" - ВЕРНУЛИ КАК БЫЛО */
+/* Стили для ссылки "Не помню пароль" */
 .auth-links {
     display: flex;
     justify-content: flex-end;
@@ -483,9 +485,9 @@ button:hover, .button:hover {
     text-decoration: underline;
 }
 
-/* Сетка фич - ОБНОВЛЕНА: новый зелёный фон #8B9D91 */
+/* Сетка фич - ОБНОВЛЕНА: бежевый фон и розовый текст */
 .features-section {
-    background: var(--new-green); /* Новый зелёный цвет */
+    background: var(--new-green);
     color: white;
     padding: 30px;
     margin: 25px 0;
@@ -496,6 +498,7 @@ button:hover, .button:hover {
 .features-section h2 {
     color: white;
     border-bottom: 2px solid var(--cherry-blossom);
+    font-family: 'Inter', sans-serif; /* Оставляем Inter */
 }
 
 .features-grid {
@@ -506,7 +509,7 @@ button:hover, .button:hover {
 }
 
 .feature-card {
-    background: var(--powder-petal);
+    background: var(--new-beige); /* Бежевый фон вместо бежевого */
     padding: 20px;
     border-radius: var(--radius);
     border-left: 4px solid var(--cherry-blossom);
@@ -519,7 +522,7 @@ button:hover, .button:hover {
 
 .feature-card h3 {
     margin: 0;
-    color: var(--iron-grey);
+    color: var(--new-pink); /* Розовый текст */
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 1.1em;
