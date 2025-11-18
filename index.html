@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Lora:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
     <script>
         const SUPABASE_URL = 'https://lyqedngejapolcffscyk.supabase.co';
@@ -32,30 +33,25 @@
     <main>
         <!-- Герой-секция - ОБНОВЛЕНА -->
         <section class="hero-section">
-            <div class="hero-content">
-                <h2>Личное пространство, где забота о себе становится простой и естественной</h2>
-                <p class="lead">Мы создали RUNLI для тех, кто устал от хаоса разрозненных заметок, забытых приложений и красивых, но неработающих планеров. Здесь всё собрано в единую и понятную систему. Это не просто набор функций, а продуманная среда, где каждая деталь служит одной цели - освободить ваше время, энергию и мысли, чтобы вы могли сосредоточиться на самом главном: на себе. Ваша гармония - наш главный проект!</p>
-            </div>
+    <div class="hero-content">
+        <h2 class="raleway-heading">Личное пространство, где забота о себе становится простой и естественной</h2>
+        <p class="lead inter-white">Мы создали RUNLI для тех, кто устал от хаоса разрозненных заметок, забытых приложений и красивых, но неработающих планеров. Здесь всё собрано в единую и понятную систему. Это не просто набор функций, а продуманная среда, где каждая деталь служит одной цели - освободить ваше время, энергию и мысли, чтобы вы могли сосредоточиться на самом главном: на себе. Ваша гармония - наш главный проект!</p>
+    </div>
 
-            <!-- Блок авторизации -->
+              <!-- Блок авторизации -->
             <div class="auth-section">
-                <div class="auth-tabs">
-                    <button class="auth-tab active" data-tab="login">Вход</button>
-                    <button class="auth-tab" data-tab="signup">Регистрация</button>
+        <!-- Форма входа -->
+        <div id="login-form" class="auth-form active">
+            <form id="signin-form">
+                <input type="email" id="signin-email" placeholder="Email" required>
+                <input type="password" id="signin-password" placeholder="Пароль" required>
+                <div class="auth-links">
+                    <button type="button" id="forgot-password" class="link white-link">Не помню пароль</button>
                 </div>
-
-                <!-- Форма входа -->
-                <div id="login-form" class="auth-form active">
-                    <form id="signin-form">
-                        <input type="email" id="signin-email" placeholder="Email" required>
-                        <input type="password" id="signin-password" placeholder="Пароль" required>
-                        <div class="auth-links">
-                            <button type="button" id="forgot-password" class="link">Не помню пароль</button>
-                        </div>
-                        <button type="submit" class="auth-button">Войти</button>
-                    </form>
-                    <div id="signin-msg" class="notice" style="display:none"></div>
-                </div>
+                <button type="submit" class="auth-button">Войти</button>
+            </form>
+            <div id="signin-msg" class="notice" style="display:none"></div>
+        </div>
 
                 <!-- Форма регистрации -->
                 <div id="signup-form" class="auth-form">
@@ -185,20 +181,20 @@
         </section>
 
         <!-- Информационные секции -->
-        <section class="features-section">
-    <h2 class="nav-font">Сферы жизни в RUNLI</h2>
+<section class="features-section">
+    <h2 class="raleway-heading">Сферы жизни в RUNLI</h2>
     <div class="features-grid">
         <div class="feature-card">
-            <h3>здоровье</h3>
+            <h3 class="inter-white">здоровье</h3>
         </div>
         <div class="feature-card">
-            <h3>финансы</h3>
+            <h3 class="inter-white">финансы</h3>
         </div>
         <div class="feature-card">
-            <h3>саморазвитие</h3>
+            <h3 class="inter-white">саморазвитие</h3>
         </div>
         <div class="feature-card">
-            <h3>уют</h3>
+            <h3 class="inter-white">уют</h3>
         </div>
     </div>
 </section>
