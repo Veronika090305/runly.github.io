@@ -41,13 +41,14 @@ header {
     box-shadow: 0 4px 15px rgba(74, 87, 89, 0.1);
 }
 
-/* Заголовок RUNLI - уменьшен до 3.5em */
+/* Заголовок RUNLI, цвет серо-зеленый*/
 header h1 {
     margin: 0 0 15px 0;
     font-size: 3.5em;
     font-weight: 400;
     letter-spacing: -0.5px;
     font-family: 'Lora', serif;
+    color: var(--iron-grey);
 }
 
 /* Навигация */
