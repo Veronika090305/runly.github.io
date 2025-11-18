@@ -691,9 +691,9 @@ button:hover, .button:hover {
 
 /* Стили для карточек сфер жизни */
 .feature-card h3 {
-    font-family: 'Inter', sans-serif; /* Применяем Inter */
-    color: white; /* Белый цвет */
-    font-size: 16px; /* Одинаковый размер с .lead текстом */
+    font-family: 'Inter', sans-serif;
+    color: #8E9C92; /* Новый цвет */
+    font-size: 16px;
     font-weight: 500;
     text-transform: lowercase;
 }
