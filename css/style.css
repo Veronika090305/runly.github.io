@@ -581,6 +581,7 @@ button:hover, .button:hover {
     padding-bottom: 10px;
 }
 
+/* Стили для страниц с hero-оформлением */
 .hero-page-content .inter-white {
     font-size: 1em;
     line-height: 1.7;
@@ -654,41 +655,9 @@ button:hover, .button:hover {
     border-radius: var(--radius);
 }
 
-/* Адаптивность для hero-страниц */
+/* ОДИН общий медиа-запрос для всех страниц */
 @media (max-width: 768px) {
-    .hero-page-section,
-    .telegram-hero-section {
-        padding: 30px 20px;
-    }
-    
-    .telegram-card-hero {
-        padding: 20px;
-    }
-}
-
-/* Адаптивность для Telegram страницы */
-@media (max-width: 768px) {
-    .telegram-section {
-        padding: 10px;
-    }
-    
-    .telegram-card {
-        padding: 20px;
-        margin: 20px 0;
-    }
-    
-    .benefits-list {
-        text-align: center;
-    }
-    
-    .benefits-list li {
-        text-align: left;
-        margin-bottom: 8px;
-    }
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
+    /* Адаптивность шапки и основных элементов */
     header {
         padding: 20px 15px;
     }
@@ -720,6 +689,7 @@ button:hover, .button:hover {
         font-size: 1.5em;
     }
 
+    /* Главная страница - hero секция */
     .hero-section {
         flex-direction: column;
         gap: 30px;
@@ -735,6 +705,28 @@ button:hover, .button:hover {
         width: 100%;
     }
     
+    /* Страницы "Наша философия" и "Мы в Telegram" */
+    .hero-page-section,
+    .telegram-hero-section {
+        padding: 30px 20px;
+    }
+    
+    .hero-page-content h2,
+    .telegram-hero-content h2 {
+        font-size: 1.6em;
+    }
+    
+    .telegram-card-hero {
+        padding: 20px;
+    }
+    
+    .hero-page-content .inter-white,
+    .telegram-card-hero .inter-white {
+        font-size: 0.95em;
+        line-height: 1.6;
+    }
+    
+    /* Формы и чекбоксы */
     .form-row {
         flex-direction: column;
         gap: 0;
@@ -750,6 +742,7 @@ button:hover, .button:hover {
         min-height: 55px;
     }
     
+    /* Секция сфер жизни */
     .features-grid {
         grid-template-columns: 1fr;
     }
@@ -757,5 +750,32 @@ button:hover, .button:hover {
     .feature-card {
         min-height: 70px;
         padding: 15px;
+    }
+    
+    .features-section {
+        padding: 20px;
+    }
+    
+    .features-section h2.raleway-heading {
+        font-size: 1.5em;
+    }
+    
+    /* Старая версия Telegram страницы (если используется) */
+    .telegram-section {
+        padding: 10px;
+    }
+    
+    .telegram-card {
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    .benefits-list {
+        text-align: center;
+    }
+    
+    .benefits-list li {
+        text-align: left;
+        margin-bottom: 8px;
     }
 }
