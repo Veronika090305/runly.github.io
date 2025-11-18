@@ -36,6 +36,43 @@
         .inter-white, .inter-text {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
+        
+        /* Стили для загрузки аватара */
+        .avatar-upload {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .avatar-preview {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--powder-petal);
+            border: 2px dashed var(--cherry-blossom);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .avatar-preview:hover {
+            border-color: var(--ash-grey);
+            transform: scale(1.05);
+        }
+
+        .avatar-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-preview span {
+            font-size: 2em;
+            color: var(--cherry-blossom);
+        }
     </style>
 </head>
 <body>
@@ -290,13 +327,28 @@
             }
         });
 
-        // Регистрация пользователя
+        // Загрузка и предпросмотр аватара
+        document.getElementById('register-avatar').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('avatar-preview');
+                    preview.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Обновлённая функция регистрации
         document.getElementById('register-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             
             const email = document.getElementById('register-email').value.trim();
             const password = document.getElementById('register-password').value;
+            const fullName = document.getElementById('register-name').value.trim();
             const age = document.getElementById('register-age').value;
+            const avatarFile = document.getElementById('register-avatar').files[0];
             
             const activities = Array.from(document.querySelectorAll('input[name="activity"]:checked'))
                                   .map(checkbox => checkbox.value);
@@ -309,6 +361,11 @@
                 return;
             }
 
+            if (!fullName) {
+                setMessage('signup-msg', 'Пожалуйста, укажите ваше имя');
+                return;
+            }
+
             try {
                 const redirectTo = `${window.location.origin}/index.html?confirmed=1`;
                 const { data, error } = await supabase.auth.signUp({
@@ -318,11 +375,29 @@
 
                 if (error) throw error;
 
-                // Сохраняем дополнительную информацию в профиль
+                // Загружаем аватар если есть
+                let avatarUrl = null;
+                if (avatarFile) {
+                    const fileName = `avatars/${data.user.id}/${Date.now()}_${avatarFile.name}`;
+                    const { data: uploadData, error: uploadError } = await supabase.storage
+                        .from('avatars')
+                        .upload(fileName, avatarFile);
+                    
+                    if (!uploadError) {
+                        const { data: urlData } = supabase.storage
+                            .from('avatars')
+                            .getPublicUrl(fileName);
+                        avatarUrl = urlData.publicUrl;
+                    }
+                }
+
+                // Сохраняем профиль с новыми полями
                 if (data.user) {
                     await supabase.from('profiles').upsert({
                         user_id: data.user.id,
+                        full_name: fullName,
                         age: age || null,
+                        avatar_url: avatarUrl,
                         activity: activities.length > 0 ? activities : null,
                         goals: goals.length > 0 ? goals : null,
                         updated_at: new Date().toISOString()
@@ -330,7 +405,7 @@
                 }
 
                 setMessage('signup-msg', 
-                    `Квест по регистрации почти пройден! Осталось забрать ключ-ссылку из вашего почтового сундука!\n\nБез подтверждения почты вы уже можете войти в свой аккаунт, но без перехода по ссылке из письма на почте в будущем не получится восстановить пароль, если забудете его`, 
+                    `Квест по регистрации почти пройден! Осталось забрать ключ-ссылку из вашего почтового сундука!`, 
                     true
                 );
                 
