@@ -1,8 +1,21 @@
 User-agent: *
 Allow: /
-Sitemap: https://runli.ru/sitemap.xml
-
-# Дополнительные директивы
+Crawl-delay: 1
 Disallow: /admin/
 Disallow: /dashboard/
 Disallow: /reset-password.html
+Disallow: /cgi-bin/
+
+# Sitemap
+Sitemap: https://runli.ru/sitemap.xml
+
+# Яндекс-специфичные настройки
+User-agent: Yandex
+Allow: /
+Clean-param: utm_source&utm_medium&utm_campaign /search/
+Host: runli.ru
+
+# Для Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
