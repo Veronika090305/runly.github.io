@@ -102,6 +102,51 @@
             border-radius: var(--radius);
             margin-bottom: 20px;
         }
+        
+        /* Стили для профиля */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--dust-grey);
+        }
+
+        .profile-avatar {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--cherry-blossom);
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .change-avatar-btn {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: var(--cherry-blossom);
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            color: white;
+            font-size: 14px;
+        }
+
+        .profile-details h3 {
+            margin: 0 0 10px 0;
+            color: var(--iron-grey);
+            font-size: 1.4em;
+        }
     </style>
 </head>
 <body>
@@ -186,8 +231,17 @@
         <section id="profile" class="dashboard-section">
             <div class="profile-info">
                 <h2>Ваш профиль</h2>
+                <div class="profile-header">
+                    <div class="profile-avatar" id="profile-avatar">
+                        <img id="avatar-img" src="" alt="Аватар">
+                        <button class="change-avatar-btn" onclick="changeAvatar()">✏️</button>
+                    </div>
+                    <div class="profile-details">
+                        <h3 id="profile-name">Загрузка...</h3>
+                        <p><strong>Email:</strong> <span id="profile-email">Загрузка...</span></p>
+                    </div>
+                </div>
                 <div id="profile-data">
-                    <p><strong>Email:</strong> <span id="profile-email">Загрузка...</span></p>
                     <p><strong>Возраст:</strong> <span id="profile-age">Не указан</span></p>
                     <p><strong>Деятельность:</strong> <span id="profile-activity">Не указана</span></p>
                     <p><strong>Цели:</strong> <span id="profile-goals">Не указаны</span></p>
@@ -239,7 +293,55 @@
             return user;
         }
 
-        // Загрузка данных пользователя
+        // Функция смены аватара
+        async function changeAvatar() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            
+            input.onchange = async (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    try {
+                        const user = await checkAuth();
+                        if (!user) return;
+
+                        // Загружаем новый аватар
+                        const fileName = `avatars/${user.id}/${Date.now()}_${file.name}`;
+                        const { data: uploadData, error: uploadError } = await supabase.storage
+                            .from('avatars')
+                            .upload(fileName, file, { upsert: true });
+                        
+                        if (uploadError) throw uploadError;
+
+                        // Получаем публичный URL
+                        const { data: urlData } = supabase.storage
+                            .from('avatars')
+                            .getPublicUrl(fileName);
+
+                        // Обновляем профиль
+                        const { error: updateError } = await supabase
+                            .from('profiles')
+                            .update({ avatar_url: urlData.publicUrl })
+                            .eq('user_id', user.id);
+
+                        if (updateError) throw updateError;
+
+                        // Обновляем отображение
+                        document.getElementById('avatar-img').src = urlData.publicUrl;
+                        alert('Аватар успешно обновлен!');
+
+                    } catch (error) {
+                        console.error('Ошибка загрузки аватара:', error);
+                        alert('Ошибка при загрузке аватара');
+                    }
+                }
+            };
+            
+            input.click();
+        }
+
+        // Обновите функцию loadUserData
         async function loadUserData() {
             const user = await checkAuth();
             if (!user) return;
@@ -255,10 +357,21 @@
                 .single();
 
             if (profile) {
+                // Отображаем имя
+                document.getElementById('profile-name').textContent = profile.full_name || 'Пользователь';
                 document.getElementById('profile-email').textContent = user.email;
+                
+                // Отображаем аватар
+                const avatarImg = document.getElementById('avatar-img');
+                if (profile.avatar_url) {
+                    avatarImg.src = profile.avatar_url;
+                } else {
+                    avatarImg.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iNDAiIGZpbGw9IiNlZGFmYjgiLz4KPHBhdGggZD0iTTQwIDQ0QzQ2LjYyNzQgNDQgNTIgMzguNjI3NCA1MiAzMkM1MiAyNS4zNzI2IDQ2LjYyNzQgMjAgNDAgMjBDMzMuMzcyNiAyMCAyOCAyNS4zNzI2IDI4IDMyQzI4IDM4LjYyNzQgMzMuMzcyNiA0NCA0MCA0NFoiIGZpbGw9IndoaXRlIi8+CjxjaXJjbGUgY3g9IjQwIiBjeT0iMzIiIHI9IjEyIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K'; // SVG placeholder
+                }
+                
+                // Остальные поля...
                 document.getElementById('profile-age').textContent = profile.age || 'Не указан';
                 
-                // Преобразуем деятельность в читаемый вид
                 const activityMap = {
                     'school': 'Школьник',
                     'student': 'Студент', 
@@ -268,9 +381,8 @@
                     'other': 'Другое'
                 };
                 document.getElementById('profile-activity').textContent = 
-                    activityMap[profile.activity] || 'Не указана';
+                    profile.activity ? profile.activity.map(a => activityMap[a] || a).join(', ') : 'Не указана';
                 
-                // Преобразуем цели
                 if (profile.goals && profile.goals.length > 0) {
                     const goalsMap = {
                         'finance': 'Финансы',
@@ -284,28 +396,29 @@
                     document.getElementById('profile-goals').textContent = goalsText;
                 }
             }
-                if (user && !user.email_confirmed_at) {
-        // Показываем напоминание о подтверждении почты
-        const reminder = document.createElement('div');
-        reminder.className = 'notice';
-        reminder.innerHTML = `
-            💌 Почта ещё не подтверждена. 
-            <button id="resend-confirmation" class="link" style="margin-left: 10px;">Отправить письмо ещё раз</button>
-            <br><small>Без подтверждения нельзя восстановить пароль</small>
-        `;
-        document.querySelector('main').insertBefore(reminder, document.querySelector('main').firstChild);
-        
-        // Обработчик повторной отправки
-        document.getElementById('resend-confirmation').addEventListener('click', async () => {
-            const { error } = await supabase.auth.resend({
-                type: 'signup',
-                email: user.email
-            });
-            if (!error) {
-                reminder.innerHTML = 'Письмо отправлено! Проверьте почту';
+
+            if (user && !user.email_confirmed_at) {
+                // Показываем напоминание о подтверждении почты
+                const reminder = document.createElement('div');
+                reminder.className = 'notice';
+                reminder.innerHTML = `
+                    💌 Почта ещё не подтверждена. 
+                    <button id="resend-confirmation" class="link" style="margin-left: 10px;">Отправить письмо ещё раз</button>
+                    <br><small>Без подтверждения нельзя восстановить пароль</small>
+                `;
+                document.querySelector('main').insertBefore(reminder, document.querySelector('main').firstChild);
+                
+                // Обработчик повторной отправки
+                document.getElementById('resend-confirmation').addEventListener('click', async () => {
+                    const { error } = await supabase.auth.resend({
+                        type: 'signup',
+                        email: user.email
+                    });
+                    if (!error) {
+                        reminder.innerHTML = 'Письмо отправлено! Проверьте почту';
+                    }
+                });
             }
-        });
-    }
         }
 
         // Навигация по разделам
