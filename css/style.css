@@ -638,3 +638,68 @@ button:hover, .button:hover {
         padding: 15px;
     }
 }
+
+/* Новые стили для решения задач */
+
+/* Стили для Raleway заголовков с одинаковым размером */
+.raleway-heading {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+/* Стили для белого текста Inter */
+.inter-white {
+    font-family: 'Inter', sans-serif;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* Стили для обычного текста Inter (без изменения цвета) */
+.inter-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05em;
+    line-height: 1.7;
+    color: var(--text-dark);
+}
+
+/* Стили для белой ссылки "Не помню пароль" */
+.white-link {
+    color: white !important;
+}
+
+.white-link:hover {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Обновление существующих стилей для соответствия задачам */
+
+/* Герой-секция - обновленные стили */
+.hero-content h2 {
+    font-family: 'Raleway', sans-serif; /* Применяем Raleway */
+    font-size: 1.8em; /* Одинаковый размер с другими Raleway заголовками */
+}
+
+/* Фичи-секция - обновленные стили */
+.features-section h2 {
+    font-family: 'Raleway', sans-serif; /* Применяем Raleway */
+    font-size: 1.8em; /* Одинаковый размер */
+}
+
+/* Стили для карточек сфер жизни */
+.feature-card h3 {
+    font-family: 'Inter', sans-serif; /* Применяем Inter */
+    color: white; /* Белый цвет */
+    font-size: 16px; /* Одинаковый размер с .lead текстом */
+    font-weight: 500;
+    text-transform: lowercase;
+}
+
+/* Стили для основного текста в герое */
+.hero-content .lead {
+    font-family: 'Inter', sans-serif; /* Применяем Inter */
+    color: white; /* Белый цвет */
+    font-size: 16px; /* Одинаковый размер */
+    line-height: 1.7;
+}
