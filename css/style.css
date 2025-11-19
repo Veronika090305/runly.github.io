@@ -494,6 +494,301 @@ button:hover, .button:hover {
     text-align: center;
 }
 
+/* Стили для модуля тренировок */
+.workout-section {
+    background: white;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.workout-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.workout-card {
+    background: var(--powder-petal);
+    border: 2px solid transparent;
+    border-radius: var(--radius);
+    padding: 15px;
+    cursor: pointer;
+    transition: all var(--transition);
+    position: relative;
+}
+
+.workout-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--cherry-blossom);
+    box-shadow: 0 6px 20px rgba(237, 175, 184, 0.2);
+}
+
+.workout-header {
+    display: flex;
+    justify-content: between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.workout-type {
+    font-size: 0.8em;
+    padding: 4px 8px;
+    border-radius: 12px;
+    background: var(--ash-grey);
+    color: white;
+}
+
+.workout-type.gym { background: var(--iron-grey); }
+.workout-type.home { background: var(--new-green); }
+.workout-type.video { background: var(--cherry-blossom); }
+
+.workout-mood {
+    font-size: 1.5em;
+    margin-left: auto;
+}
+
+.workout-date {
+    color: var(--text-light);
+    font-size: 0.9em;
+    margin-bottom: 8px;
+}
+
+.workout-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+/* Модальное окно тренировки */
+.workout-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.workout-modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    border-radius: var(--radius);
+    padding: 25px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: var(--text-light);
+}
+
+/* План тренировок */
+.plan-card {
+    background: linear-gradient(135deg, var(--new-green), var(--ash-grey));
+    color: white;
+    padding: 20px;
+    border-radius: var(--radius);
+    margin: 15px 0;
+}
+
+.progress-bar {
+    background: rgba(255,255,255,0.3);
+    border-radius: 10px;
+    height: 12px;
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    background: var(--cherry-blossom);
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+.checks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.check-item {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.check-item.checked {
+    background: var(--cherry-blossom);
+}
+
+.check-item.manual {
+    border: 2px dashed rgba(255,255,255,0.5);
+}
+
+/* Форма создания тренировки */
+.workout-form .form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.workout-form .form-group {
+    flex: 1;
+}
+
+.mood-selector {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.mood-option {
+    font-size: 2em;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all var(--transition);
+}
+
+.mood-option.active {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.like-buttons {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.like-btn {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid var(--dust-grey);
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    transition: all var(--transition);
+    text-align: center;
+}
+
+.like-btn.active {
+    border-color: var(--cherry-blossom);
+    background: var(--powder-petal);
+}
+
+/* Карточки порталов в ЛК */
+.portal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.portal-card {
+    background: white;
+    padding: 20px;
+    border-radius: var(--radius);
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition);
+    border: 2px solid transparent;
+    box-shadow: var(--shadow);
+}
+
+.portal-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--cherry-blossom);
+    box-shadow: 0 8px 25px rgba(237, 175, 184, 0.25);
+}
+
+.portal-icon {
+    font-size: 2em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Достижения */
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.achievement-item {
+    text-align: center;
+    padding: 10px;
+    background: var(--powder-petal);
+    border-radius: var(--radius);
+    opacity: 0.5;
+}
+
+.achievement-item.unlocked {
+    opacity: 1;
+    background: var(--cherry-blossom);
+    color: white;
+}
+
+.achievement-icon {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .workout-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .portal-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .workout-form .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .modal-content {
+        margin: 10px;
+        padding: 20px 15px;
+    }
+    
+    .mood-selector {
+        justify-content: space-around;
+    }
+}
+
 /* Стили для загрузки аватара */
 .avatar-upload {
     text-align: center;
