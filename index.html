@@ -127,22 +127,30 @@
                     <div id="signin-msg" class="notice" style="display:none"></div>
                 </div>
 
-                <!-- Форма регистрации -->
-                <div id="signup-form" class="auth-form">
-                    <form id="register-form">
-                        <input type="email" id="register-email" placeholder="Email" required>
-                        <input type="password" id="register-password" placeholder="Пароль (минимум 6 символов)" required>
-                        
-<div class="form-row">
-    <div class="form-group">
-        <label>Ваше имя</label>
-        <input type="text" id="register-name" placeholder="Как к вам обращаться?" required>
-    </div>
-    <div class="form-group">
-        <label>Возраст</label>
-        <input type="number" id="register-age" placeholder="Сколько вам лет?" min="0" max="150">
-    </div>
-</div>
+<!-- Обновленная форма регистрации -->
+<div id="signup-form" class="auth-form">
+    <form id="register-form">
+        <input type="email" id="register-email" placeholder="Email" required>
+        <input type="password" id="register-password" placeholder="Пароль (минимум 6 символов)" required>
+        
+        <!-- Объединенные поля профиля -->
+        <div class="form-row">
+            <div class="form-group">
+                <label>Имя пользователя @</label>
+                <input type="text" id="register-username" placeholder="например, anna_fitness" required 
+                       pattern="[a-zA-Z0-9_]+" minlength="3" maxlength="30">
+                <small class="small">Только латинские буквы, цифры и _</small>
+            </div>
+            <div class="form-group">
+                <label>Дата рождения</label>
+                <input type="date" id="register-birthdate" max="2025-12-31">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Как к вам обращаться?</label>
+            <input type="text" id="register-display-name" placeholder="Анна" required>
+        </div>
 
 <!-- Добавьте поле для аватара -->
 <div class="form-group">
