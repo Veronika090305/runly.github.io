@@ -352,17 +352,18 @@
         document.getElementById('register-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const email = document.getElementById('register-email').value.trim();
-            const password = document.getElementById('register-password').value;
-            const fullName = document.getElementById('register-name').value.trim();
-            const age = document.getElementById('register-age').value;
-            const avatarFile = document.getElementById('register-avatar').files[0];
-            
-            const activities = Array.from(document.querySelectorAll('input[name="activity"]:checked'))
-                                  .map(checkbox => checkbox.value);
-            
-            const goals = Array.from(document.querySelectorAll('input[name="goals"]:checked'))
-                              .map(checkbox => checkbox.value);
+const email = document.getElementById('register-email').value.trim();
+const password = document.getElementById('register-password').value;
+const username = document.getElementById('register-username').value.trim();
+const birthDate = document.getElementById('register-birthdate').value;
+const displayName = document.getElementById('register-display-name').value.trim();
+const avatarFile = document.getElementById('register-avatar').files[0];
+
+const activities = Array.from(document.querySelectorAll('input[name="activity"]:checked'))
+                      .map(checkbox => checkbox.value);
+
+const goals = Array.from(document.querySelectorAll('input[name="goals"]:checked'))
+                  .map(checkbox => checkbox.value);
 
             if (password.length < 6) {
                 setMessage('signup-msg', 'Пароль должен состоять минимум из 6 символов 🔐');
@@ -403,8 +404,9 @@
                 if (data.user) {
                     await supabase.from('profiles').upsert({
                         user_id: data.user.id,
-                        full_name: fullName,
-                        age: age || null,
+                        username: username,
+                        birth_date: birthDate || null,
+                        display_name: displayName,
                         avatar_url: avatarUrl,
                         activity: activities.length > 0 ? activities : null,
                         goals: goals.length > 0 ? goals : null,
